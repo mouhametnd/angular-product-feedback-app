@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -12,8 +11,6 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-
-
 
 html {
   line-height: 1.15; /* 1 */
@@ -355,4 +352,73 @@ template {
 
 [hidden] {
   display: none;
+}
+
+body {
+  background-color: #333;
+  color: #fff;
+  @apply font-prim;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  &__mobile-header {
+    background-image: url("/assets/suggestions/mobile/background-header.png");
+  }
+
+  &__big-header {
+    background-image: url("/assets/suggestions/desktop/background-header.png");
+  }
+
+  &__white-wrapper {
+    @apply bg-white px-6 py-4 rounded-2xl w-full h-full;
+    box-shadow: -1px -2px 10px 10px #0000000a;
+  }
+
+  &__fb-category-element {
+    @apply rounded-[10px] py-[9px] px-[20.6px] w-fit h-fit pointer-events-auto text-center text-[.9rem]  leading-[1.9rem] font-bold bg-lightBlue text-darkBlue;
+
+    &--active {
+      @apply bg-darkBlue text-white;
+    }
+  }
+
+  &__button {
+
+
+
+    &--large {
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-6 w-full max-w-[175px] ;
+    }
+  }
+}
+
+@media screen and (hover: hover) {
+  .app {
+    &__fb-category-element--button {
+      @apply cursor-pointer transition-colors;
+      &:hover {
+        @apply bg-darkBlueHover text-white;
+      }
+    }
+
+    &__fb-category-element--active,
+    &__view-button, &__button--large {
+      @apply cursor-pointer transition-opacity;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 }
