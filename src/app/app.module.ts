@@ -8,6 +8,11 @@ import { AppComponent } from './app.component';
 import { BigHeaderComponent } from './ui/big-header/big-header.component';
 import { CustomSelectComponent } from './ui/custom-select/custom-select.component';
 import { FeedbackCategoriesComponent } from './ui/feedback-catergories/feedback-categories.component';
+import { FeedbackCommentElementComponent } from './ui/feedback-comment-element/feedback-comment-element.component';
+import { FeedBackLargeCardItemComponent } from './ui/feedback-large-card-item/feedback-large-card-item.component';
+
+import { FeedbackLargeCardListComponent } from './ui/feedback-large-card-list/feedback-large-card-list.component';
+import { FeedbackUpvoteElementComponent } from './ui/feedback-upvote-element/feedback-upvote-element.component';
 import { MobileHeaderComponent } from './ui/mobile-header/mobile-header.component';
 import { PresentationCardComponent } from './ui/presentation-card/presentation-card.component';
 import { RoadmapItemComponent } from './ui/roadmap-item/roadmap-item.component';
@@ -24,8 +29,13 @@ import { SuggestionBarComponent } from './ui/suggestion-bar/suggestion-bar.compo
     BigHeaderComponent,
     PresentationCardComponent,
     SuggestionBarComponent,
-    CustomSelectComponent
+    CustomSelectComponent,
+    FeedBackLargeCardItemComponent,
+    FeedbackLargeCardListComponent,
+    FeedbackCommentElementComponent,
+    FeedbackUpvoteElementComponent
 
+    
   ],
   imports: [
     BrowserModule,

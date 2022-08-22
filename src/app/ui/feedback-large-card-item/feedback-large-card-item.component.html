@@ -1,0 +1,18 @@
+<li class="app__white-wrapper flex fb" [ngClass]="{ 'fb--col': isFlexCol }">
+  <fedback-upvote-element
+    [isFlexCol]="!isFlexCol"
+    [numUpvotes]="feedback.upvotes"
+  ></fedback-upvote-element>
+
+  <div class="fb__top-container">
+    <h4 class="fb__title">{{ feedback.title }}</h4>
+    <p class="fb__description">{{ feedback.description }}</p>
+
+    <span class="app__fb-category-element">{{ feedback.category }}</span>
+  </div>
+
+  <feedback-comment-element
+    [numComments]="feedback.comments.length"
+  ></feedback-comment-element>
+</li>
+

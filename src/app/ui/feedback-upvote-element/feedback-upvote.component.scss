@@ -1,0 +1,19 @@
+span{
+  background: rgb(240, 242, 255);
+border-radius: 10px;
+color: rgb(71, 97, 230);
+padding: 0.5rem 1.6rem;
+width: fit-content;
+height: fit-content;
+margin-right: 0.8rem;
+pointer-events: none;
+cursor: pointer;
+display: flex;
+-webkit-box-pack: center;
+justify-content: center;
+-webkit-box-align: center;
+align-items: center;
+font-size: 1.3rem;
+line-height: 1.9rem;
+font-weight: 600;
+}

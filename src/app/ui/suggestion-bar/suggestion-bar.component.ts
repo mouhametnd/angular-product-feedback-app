@@ -1,9 +1,17 @@
-import { Component } from "@angular/core";
+import { Component, DoCheck } from '@angular/core';
+import { sortByOptions } from 'src/app/constants/constans';
 
 @Component({
-  selector: "suggestion-bar",
-  templateUrl: "./suggestion-bar.component.html",
+  selector: 'suggestion-bar',
+  templateUrl: './suggestion-bar.component.html',
 })
 export class SuggestionBarComponent {
-  constructor() {}
+  selectedOption = sortByOptions[0];
+  sortByOptions = sortByOptions;
+  shouldDisplaySelect = false;
+
+  toggleSelect() {
+    this.shouldDisplaySelect = !this.shouldDisplaySelect;
+  }
+
 }

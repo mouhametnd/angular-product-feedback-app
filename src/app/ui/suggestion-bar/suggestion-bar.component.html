@@ -1,16 +1,54 @@
+<style>
+  .image-svg {
+    filter: invert(100%);
+    object-fit: contain;
+  }
+
+  @media screen and (hover: hover) {
+    .select-container:hover span {
+        opacity: 80%;
+    }
+  }
+</style>
+
 <section
-  class="bg-darkGrey pl-6 pr-4 py-3 flex justify-center gap-4 md:justify-between"
+  class="bg-darkGrey pl-4 pr-4 py-3 flex justify-center gap-4 md:justify-between"
 >
-  <div class="flex justify-between w-full max-w-[350px] items-center gap-2 ">
+  <div class="flex justify-between w-full max-w-[350px] items-center gap-2">
     <div class="maxmd:hidden flex w-full h-max gap-2.5">
-      <img src="./assets/shared/loop.svg" alt="icon" class="max-w-[25px] max-h-[25px]"  />
+      <img
+        src="./assets/shared/loop.svg"
+        alt="icon"
+        class="max-w-[25px] max-h-[25px]"
+      />
       <h4 class="inline-block font-bold text-lg">6 Suggestions</h4>
     </div>
 
-    <div class="self-center w-full">
-      <custom-select extraClasses="self-center"></custom-select>
+    <div
+      class="self-center relative select-container flex gap-1 min-w-max"
+      (click)="toggleSelect()"
+    >
+      <span
+        class="text-lightBlue text-sm font-normal cursor-pointer inline-block w-max"
+        >Sort By:
+        <span class="font-medium">{{ selectedOption.title }}</span></span
+      >
+
+      <custom-select
+        [options]="sortByOptions"
+        [shouldDisplay]="shouldDisplaySelect"
+        extraClasses="self-center absolute top-[45px] left-[-7px]"
+        [(selectedOption)]="selectedOption"
+      ></custom-select>
+
+      <img
+        src="./assets/shared/icon-arrow-up.svg"
+        alt="arrow"
+        class="image-svg"
+        [ngClass]="{ app__rotate: shouldDisplaySelect }"
+      />
     </div>
   </div>
 
-  <button class="app__button--large bg-primaryBtn ">+ Add Feedback</button>
+  <button class="app__button--large bg-primaryBtn">+ Add Feedback</button>
 </section>

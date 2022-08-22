@@ -1,1 +1,38 @@
-<span>custom select</span>
+<style>
+  .custom-select {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transition: clip-path 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    pointer-events: none;
+  }
+
+  .custom-select.is-open {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    pointer-events: all;
+  }
+</style> 
+
+<ul
+  class="custom-select w-max bg-white rounded-xl flex flex-col divide-y-[2px] border-mediumGrey border-solid z-20  {{
+    extraClasses
+  }}"
+  [ngClass]="{ 'is-open': shouldDisplay }"
+>
+  <li
+    *ngFor="let option of options"
+    class="px-6 py-[14px] pr-16 relative app__select-option cursor-pointer"
+    (click)="setValue(option)"
+  >
+    <span class="text-mediumGrey font-normal text-base tracking-wide">
+      {{ option.title }}
+    </span>
+
+    <img
+      *ngIf="isSelected(option.value)"
+      src="./assets/shared/icon-check.svg"
+      alt="check icon"
+      class="absolute top-[18px] w-5 h-5 right-5"
+    />
+  </li>
+</ul>

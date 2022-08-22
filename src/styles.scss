@@ -395,12 +395,13 @@ li {
   }
 
   &__button {
-
-
-
     &--large {
-      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-6 w-full max-w-[175px] ;
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px];
     }
+  }
+
+  &__rotate {
+    transform: rotate(180deg);
   }
 }
 
@@ -414,10 +415,32 @@ li {
     }
 
     &__fb-category-element--active,
-    &__view-button, &__button--large {
+    &__view-button,
+    &__button--large {
       @apply cursor-pointer transition-opacity;
       &:hover {
         opacity: 0.8;
+      }
+    }
+
+    &__select-option {
+      & span {
+        @apply transition-colors;
+      }
+      &:hover {
+        & span {
+          @apply text-inProgressClr;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    &__button {
+      &--large {
+        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-3 w-full max-w-[170px];
       }
     }
   }
