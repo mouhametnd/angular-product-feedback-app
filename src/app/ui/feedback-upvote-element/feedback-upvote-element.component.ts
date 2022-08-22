@@ -7,5 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class FeedbackUpvoteElementComponent {
   @Input() numUpvotes!: number;
-  @Input() isFlexCol = true;
+  @Input() isFlexCol = false;
 }

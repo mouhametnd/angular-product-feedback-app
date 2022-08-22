@@ -7,6 +7,7 @@ module.exports = {
         prim: ["Jost", "sans-serif"],
       },
       colors: {
+        bgClr: "#444",
         bgClr: "#f7f8fd",
         darkBlue: "#4661E6",
         darkBlueHover: "#7C91F9",

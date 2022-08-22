@@ -373,12 +373,15 @@ li {
 }
 
 .app {
-  &__mobile-header {
+  &__mobile-img {
     background-image: url("/assets/suggestions/mobile/background-header.png");
   }
 
-  &__big-header {
+  &__desktop-img {
     background-image: url("/assets/suggestions/desktop/background-header.png");
+
+    background-position: 100% 50%;
+
   }
 
   &__white-wrapper {
@@ -387,7 +390,7 @@ li {
   }
 
   &__fb-category-element {
-    @apply rounded-[10px] py-[9px] px-[20.6px] w-fit h-fit pointer-events-auto text-center text-[.9rem]  leading-[1.9rem] font-bold bg-lightBlue text-darkBlue;
+    @apply rounded-[10px] py-[9px] px-[20.6px] w-fit h-fit pointer-events-auto text-center text-xs  leading-[1.9rem] font-bold bg-lightBlue text-darkBlue;
 
     &--active {
       @apply bg-darkBlue text-white;
@@ -400,8 +403,15 @@ li {
     }
   }
 
-  &__rotate {
-    transform: rotate(180deg);
+}
+
+.fb {
+  &__upvote-button {
+    &--active {
+      @apply bg-darkBlue text-white;
+      
+      
+    }
   }
 }
 
@@ -434,13 +444,14 @@ li {
       }
     }
   }
+ 
 }
 
 @media screen and (max-width: 768px) {
   .app {
     &__button {
       &--large {
-        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-3 w-full max-w-[170px];
+        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-2 w-full max-w-[170px] text-sm;
       }
     }
   }

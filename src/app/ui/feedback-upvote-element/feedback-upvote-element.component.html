@@ -1,5 +1,12 @@
-
-<div class="flex flex-col bg-red-700" [ngClass]="{ 'flex-row': isFlexCol }">
-  <img src="./assets/shared/icon-arrow-up.svg" alt="icon-arrow-up" />
-  <span class="sp">{{ numUpvotes }}</span>
-</div>
+<button
+  class="flex flex-col text-darkBlue bg-lightBlue rounded-xl py-2 px-4 w-max h-max cursor-pointer upvote-button transition-opacity gap-3"
+  [ngClass]="{isFlexCol}"
+>
+  <div class="self-center">
+    <icon-arrow-up
+      extraClasses="self-center"
+      fill="currentColor"
+    ></icon-arrow-up>
+  </div>
+  <span class="text-inherit text-sm font-medium">{{ numUpvotes }}</span>
+</button>

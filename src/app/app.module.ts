@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { IconArrowUpComponent } from 'src/assets/shared/icon-arrow-up/icon-arrow-up.component';
 import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { FeedBackLargeCardItemComponent } from './ui/feedback-large-card-item/fe
 
 import { FeedbackLargeCardListComponent } from './ui/feedback-large-card-list/feedback-large-card-list.component';
 import { FeedbackUpvoteElementComponent } from './ui/feedback-upvote-element/feedback-upvote-element.component';
+import { HomeComponent } from './ui/home/home.component';
 import { MobileHeaderComponent } from './ui/mobile-header/mobile-header.component';
 import { PresentationCardComponent } from './ui/presentation-card/presentation-card.component';
 import { RoadmapItemComponent } from './ui/roadmap-item/roadmap-item.component';
@@ -33,9 +35,9 @@ import { SuggestionBarComponent } from './ui/suggestion-bar/suggestion-bar.compo
     FeedBackLargeCardItemComponent,
     FeedbackLargeCardListComponent,
     FeedbackCommentElementComponent,
-    FeedbackUpvoteElementComponent
-
-    
+    FeedbackUpvoteElementComponent,
+    IconArrowUpComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

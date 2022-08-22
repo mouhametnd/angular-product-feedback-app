@@ -1,14 +1,58 @@
-.fb {
-  &--col {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (hover: hover) {
+  .fb {
+    border: solid;
+    border-width: 0px;
+    border-left-width: 3.5px;
+    transition-property: border-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .fb:hover {
+    @apply border-darkBlue;
+    & h4 {
+      @apply text-darkBlue;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .fb {
+    &--row {
+      padding-block: 25px;
+      .fb__top-container {
+        flex-flow: row;
+        gap: 20px;
+      }
+      .fb__container-comment {
+        align-self: center;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .fb h1 {
-    background-color: red;
-  }
-}
+  .fb {
+    display: flex;
+    flex-flow: row;
+    gap: 20px;
 
-h1 {
-  color: black;
+    &__top-container {
+      flex-flow: column;
+      gap: 20px;
+    }
+
+    &__title-container {
+      order: -1;
+      gap: 15px;
+    }
+
+    &__container-comment {
+      align-self: flex-end;
+    }
+  }
 }

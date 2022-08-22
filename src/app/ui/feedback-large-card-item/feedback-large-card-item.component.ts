@@ -8,7 +8,7 @@ import { IFeedBack } from 'src/app/types';
 })
 export class FeedBackLargeCardItemComponent implements AfterViewInit {
   @Input() feedback!: IFeedBack;
-  @Input() isFlexCol = true;
+  @Input() isFlexCol = false;
 
   ngAfterViewInit() {
     console.log(this.feedback);

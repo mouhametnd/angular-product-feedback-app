@@ -1,18 +1,5 @@
-<style>
-  .image-svg {
-    filter: invert(100%);
-    object-fit: contain;
-  }
-
-  @media screen and (hover: hover) {
-    .select-container:hover span {
-        opacity: 80%;
-    }
-  }
-</style>
-
 <section
-  class="bg-darkGrey pl-4 pr-4 py-3 flex justify-center gap-4 md:justify-between"
+  class="bg-darkGrey pl-4 pr-4 py-3 flex justify-center gap-4 md:justify-between rounded-xl"
 >
   <div class="flex justify-between w-full max-w-[350px] items-center gap-2">
     <div class="maxmd:hidden flex w-full h-max gap-2.5">
@@ -41,12 +28,12 @@
         [(selectedOption)]="selectedOption"
       ></custom-select>
 
-      <img
-        src="./assets/shared/icon-arrow-up.svg"
-        alt="arrow"
-        class="image-svg"
-        [ngClass]="{ app__rotate: shouldDisplaySelect }"
-      />
+
+      <div class="self-center">
+        <icon-arrow-up
+          [extraClasses]="shouldDisplaySelect ? 'rotate-180' : ''"
+        ></icon-arrow-up>
+      </div>
     </div>
   </div>
 
