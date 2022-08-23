@@ -1,10 +1,11 @@
-import { Component } from "@angular/core";
-import { roadmapCategories } from "src/app/constants/constans";
+import { Component } from '@angular/core';
+import { roadmapCategories } from 'src/app/constants/constans';
 
 @Component({
-  selector: "roadmap",
-  templateUrl: "./roadmap.component.html",
+  selector: 'roadmap',
+  templateUrl: './roadmap.component.html',
+  styleUrls: ['./roadmap.component.scss'],
 })
 export class RoadmapComponent {
-  roadmapCategories = roadmapCategories
+  categories = roadmapCategories;
 }

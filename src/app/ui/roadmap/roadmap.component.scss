@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.roadmap {
+  &__container-cols {
+    @media screen and (min-width: 548px) {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+  }
+}

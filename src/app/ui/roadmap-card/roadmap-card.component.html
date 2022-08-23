@@ -1,0 +1,16 @@
+<div class="app__white-wrapper flex flex-col gap-5">
+  <div class="flex justify-between">
+    <h3 class="font-bold text-darkGrey text-xl">Roadmap</h3>
+    <button
+      class="text-darkBlue font-bold self-center underline  app__view-button  "
+    >
+      View
+    </button>
+  </div>
+  <ul class="flex flex-col gap-2">
+    <roadmap-item
+      *ngFor="let category of roadmapCategories"
+      [roadmapCategory]="category"
+    ></roadmap-item>
+  </ul>
+</div>

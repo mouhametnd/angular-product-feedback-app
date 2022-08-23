@@ -398,7 +398,7 @@ li {
 
   &__button {
     &--large {
-      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px] justify-center;
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px] justify-center max-h-14 self-center;
     }
   }
 }

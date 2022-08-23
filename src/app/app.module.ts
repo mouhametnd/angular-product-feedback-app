@@ -25,15 +25,19 @@ import { HomeComponent } from './ui/home/home.component';
 import { MobileHeaderComponent } from './ui/mobile-header/mobile-header.component';
 import { PresentationCardComponent } from './ui/presentation-card/presentation-card.component';
 import { RoadmapItemComponent } from './ui/roadmap-item/roadmap-item.component';
-import { RoadmapComponent } from './ui/roadmap/roadmap.component';
+import { RoadmapCardComponent } from './ui/roadmap-card/roadmap-card.component';
 import { SuggestionBarComponent } from './ui/suggestion-bar/suggestion-bar.component';
+import { RoadmapComponent } from './ui/roadmap/roadmap.component';
+import { RoadmapColumn } from './ui/roadmap-column/roadmap-column.component';
+import { RoadmapCardColumn } from './ui/roadmap-card-column/roadmap-card-column.component';
+import { FeedBackDetailComponent } from './ui/feedback-detail/feedback-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MobileHeaderComponent,
     FeedbackCategoriesComponent,
-    RoadmapComponent,
+    RoadmapCardComponent,
     RoadmapItemComponent,
     BigHeaderComponent,
     PresentationCardComponent,
@@ -45,10 +49,16 @@ import { SuggestionBarComponent } from './ui/suggestion-bar/suggestion-bar.compo
     FeedbackUpvoteElementComponent,
     IconArrowUpComponent,
     HomeComponent,
-    DumbFormComponent , GoBackElementComponent,
+    DumbFormComponent,
+    GoBackElementComponent,
     CreateFeedbackComponent,
     EditFeedbackComponent,
-    BaseFormComponent,BaseSuggestionBarComponent
+    BaseFormComponent,
+    BaseSuggestionBarComponent,
+    RoadmapComponent,
+    RoadmapColumn,
+    RoadmapCardColumn,
+    FeedBackDetailComponent
   ],
   imports: [
     BrowserModule,

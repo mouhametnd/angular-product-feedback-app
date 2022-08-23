@@ -1,16 +1,22 @@
-
-<li class="app__white-wrapper cursor-pointer flex flex-row w-full justify-between fb fb--row  transition-colors" >
-  <div class="fb__top-container flex  ">
+<li
+  class=" cursor-pointer flex flex-row w-full justify-between fb     {{
+    extraClasses
+  }}"
+  [ngClass]="{ 'fb--row': isFlexCol }"
+>
+  <div class="fb__top-container flex w-full ">
     <fedback-upvote-element
-      [isFlexCol]="true"
+      [isFlexCol]="isFlexCol"
       [numUpvotes]="feedback.upvotes"
     ></fedback-upvote-element>
 
-    <div class="fb__title-container flex flex-col gap-1">
-      <h4 class="fb__title text-lg text-darkGreyBlue font-medium transition-colors">
+    <div class="fb__title-container flex flex-col gap-1 w-full" >
+      <h4
+        class="fb__title text-lg text-darkGreyBlue font-medium transition-colors"
+      >
         {{ feedback.title }}
       </h4>
-      <p class="fb__description text-sm text-mediumGrey">
+      <p class="fb__description text-smw-full text-mediumGrey">
         {{ feedback.description }}
       </p>
 
@@ -18,7 +24,7 @@
     </div>
   </div>
 
-  <div class="fb__container-comment ">
+  <div class="fb__container-comment">
     <feedback-comment-element
       [numComments]="feedback.comments.length"
     ></feedback-comment-element>

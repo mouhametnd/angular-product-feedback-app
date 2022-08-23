@@ -1,16 +1,14 @@
-<div class="app__white-wrapper flex flex-col gap-5">
-  <div class="flex justify-between">
-    <h3 class="font-bold text-darkGrey text-xl">Roadmap</h3>
-    <button
-      class="text-darkBlue font-bold self-center underline  app__view-button  "
-    >
-      View
-    </button>
+
+
+<section class="grid grid-cols-1 gap-14 max-w-7xl mx-auto">
+  <base-suggestion-bar>
+    <div>
+      <go-back-element extraClasses=" text-white"></go-back-element>
+      <h2 class=" pt-3 text-2xl font-bold text-white">RoadMap</h2>
+    </div>
+  </base-suggestion-bar>
+
+  <div class="grid grid-cols-1 gap-10 roadmap__container-cols">
+    <roadmap-column *ngFor="let category of categories" [category]="category"></roadmap-column>
   </div>
-  <ul class="flex flex-col gap-2">
-    <roadmap-item
-      *ngFor="let category of roadmapCategories"
-      [roadmapCategory]="category"
-    ></roadmap-item>
-  </ul>
-</div>
+</section>

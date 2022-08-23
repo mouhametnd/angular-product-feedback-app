@@ -13,12 +13,21 @@
   }
 
   .fb:hover {
-    @apply border-darkBlue;
     & h4 {
       @apply text-darkBlue;
     }
   }
 }
+
+
+.fb--row {
+  .fb__container-comment {
+    position: absolute;
+    right: 20px;
+    bottom: 17px;
+  }
+}
+
 
 @media screen and (min-width: 768px) {
   .fb {
@@ -28,31 +37,39 @@
         flex-flow: row;
         gap: 20px;
       }
+
+      .fb__title-container {
+        order: 0;
+        gap: 10px;
+      }
+
       .fb__container-comment {
+        position: static;
         align-self: center;
       }
     }
   }
 }
 
-@media screen and (max-width: 768px) {
-  .fb {
-    display: flex;
-    flex-flow: row;
+.fb {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  gap: 20px;
+
+  &__top-container {
+    flex-flow: column;
     gap: 20px;
+  }
 
-    &__top-container {
-      flex-flow: column;
-      gap: 20px;
-    }
+  &__title-container {
+    order: -1;
+    gap: 15px;
+  }
 
-    &__title-container {
-      order: -1;
-      gap: 15px;
-    }
-
-    &__container-comment {
-      align-self: flex-end;
-    }
+  &__container-comment {
+    position: absolute;
+    right: 0;
+    bottom: 0;
   }
 }
