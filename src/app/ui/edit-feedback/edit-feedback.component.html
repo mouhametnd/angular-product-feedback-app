@@ -1,0 +1,32 @@
+<base-form
+  (formValuesEmitter)="baseFormListener($event)"
+  formTitle="Editing feedback X"
+  formSvgIcon="./assets/shared/icon-edit-feedback.svg"
+>
+  <div class="form__container relative">
+    <div class="form__container-naming">
+      <h4 class="form__input-title">Status</h4>
+      <span class="form__input-description"
+        >Choose a status for your feedback
+      </span>
+    </div>
+
+    <div (click)="toggleSelect()" class="cursor-pointer">
+      <div class="form__input form__select-container">
+        <span class="text-darkGrey">{{ selectedOption.title }}</span>
+
+        <div
+          [ngClass]="{ 'rotate-180': shouldDisplay }"
+          class="transition-transform"
+        >
+          <icon-arrow-up></icon-arrow-up>
+        </div>
+      </div>
+      <custom-select
+        [shouldDisplay]="shouldDisplay"
+        extraClasses="self-center absolute top-[125px] w-full left-[0px]"
+        [(selectedOption)]="selectedOption"
+        [options]="options"
+      ></custom-select>
+    </div></div
+></base-form>

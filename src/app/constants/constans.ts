@@ -1,18 +1,26 @@
 import { ISelectOption } from '../types';
 
 export const fbCategories = [
-  'ALL',
-  'UI',
-  'UX',
-  'Enhancement',
-  'Bug',
-  'Feature',
+  { title: 'ALL', value: 'all' },
+  { title: 'UI', value: 'ui' },
+  { title: 'UX', value: 'ux' },
+  { title: 'Enhancement', value: 'enhancement' },
+  { title: 'Bug', value: 'bug' },
+  { title: 'Feature', value: 'feature' },
 ];
+
+export const fbStatus = [
+  { title: 'Planned', value: 'planned' },
+  { title: 'In Progress', value: 'inprogress' },
+  { title: 'Suggestion', value: 'suggestion' },
+  { title: 'Live', value: 'live' },
+];
+
 export const roadmapCategories = [
-  { name: 'Planned', color: 'plannedClr', quantity: 0 },
-  { name: 'In Progress', color: 'inProgressClr', quantity: 0 },
-  { name: 'Suggestion', color: 'suggestionClr', quantity: 0 },
-  { name: 'Live', color: 'liveClr', quantity: 0 },
+  { name: fbStatus[0].title, color: 'plannedClr', quantity: 0 },
+  { name: fbStatus[1].title, color: 'inProgressClr', quantity: 0 },
+  { name: fbStatus[2].title, color: 'suggestionClr', quantity: 0 },
+  { name: fbStatus[3].title, color: 'liveClr', quantity: 0 },
 ];
 
 export const sortByOptions: ISelectOption[] = [

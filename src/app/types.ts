@@ -1,6 +1,18 @@
+import { FormControl } from '@angular/forms';
+
 export interface ISelectOption {
   title: string;
   value: string;
+}
+
+export interface IBaseFormValues {
+  fbCategory: ISelectOption;
+  fbTitle: FormControl<string | null>;
+  fbDetail: FormControl<string | null>;
+}
+
+export interface IEditFormValues extends IBaseFormValues {
+  fbStatus: ISelectOption;
 }
 
 export interface IFeedBack {

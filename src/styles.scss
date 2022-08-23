@@ -381,7 +381,6 @@ li {
     background-image: url("/assets/suggestions/desktop/background-header.png");
 
     background-position: 100% 50%;
-
   }
 
   &__white-wrapper {
@@ -399,19 +398,49 @@ li {
 
   &__button {
     &--large {
-      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px];
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px] justify-center;
     }
   }
-
 }
 
 .fb {
   &__upvote-button {
     &--active {
       @apply bg-darkBlue text-white;
-      
-      
     }
+  }
+}
+
+.form {
+  @apply flex flex-col gap-7   pb-52;
+
+  &__container{
+    @apply flex flex-col gap-4
+  }
+
+  &__input {
+    @apply bg-bgClr py-4 px-6 rounded-md text-base text-darkGrey outline-none border-none w-full; 
+
+
+    &-title,
+    &-description {
+      @apply text-sm  text-darkGreyBlue;
+    }
+    &-title {
+      @apply font-bold pb-1;
+    }
+  }
+
+  &__select-container{
+    @apply flex flex-row justify-between items-center text-[#3442c7];
+  }
+
+  &__textarea{
+    @apply appearance-none;
+  }
+
+  &__error-message{
+    @apply text-redHover text-base pl-2;
   }
 }
 
@@ -444,7 +473,6 @@ li {
       }
     }
   }
- 
 }
 
 @media screen and (max-width: 768px) {

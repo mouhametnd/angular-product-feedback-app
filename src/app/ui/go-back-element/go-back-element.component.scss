@@ -1,0 +1,23 @@
+
+.go-back {
+  &::before {
+    content: "";
+    bottom: -5px;
+    left: 23%;
+    position: absolute;
+    width: 73%;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 2px;
+    clip-path: inset(0 0 0 100%  );
+    transition: clip-path 0.3s ease-in-out;
+  }
+}
+@media screen and (hover: hover) {
+ 
+  .go-back:hover{
+    &::before {
+      clip-path: inset(0% 0 0 0);
+    }
+  }
+}

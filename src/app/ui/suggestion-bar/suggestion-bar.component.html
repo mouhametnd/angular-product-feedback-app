@@ -1,6 +1,4 @@
-<section
-  class="bg-darkGrey pl-4 pr-4 py-3 flex justify-center gap-4 md:justify-between rounded-xl"
->
+<base-suggestion-bar>
   <div class="flex justify-between w-full max-w-[350px] items-center gap-2">
     <div class="maxmd:hidden flex w-full h-max gap-2.5">
       <img
@@ -24,18 +22,16 @@
       <custom-select
         [options]="sortByOptions"
         [shouldDisplay]="shouldDisplaySelect"
-        extraClasses="self-center absolute top-[45px] left-[-7px]"
+        extraClasses="self-center absolute top-[45px] left-[-7px] w-max"
         [(selectedOption)]="selectedOption"
       ></custom-select>
 
-
-      <div class="self-center">
-        <icon-arrow-up
-          [extraClasses]="shouldDisplaySelect ? 'rotate-180' : ''"
-        ></icon-arrow-up>
+      <div
+        class="self-center transition-transform"
+        [ngClass]="{ 'rotate-180': shouldDisplaySelect }"
+      >
+        <icon-arrow-up></icon-arrow-up>
       </div>
     </div>
   </div>
-
-  <button class="app__button--large bg-primaryBtn">+ Add Feedback</button>
-</section>
+</base-suggestion-bar>
