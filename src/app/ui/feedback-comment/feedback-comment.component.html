@@ -1,0 +1,62 @@
+<li class="comment-container">
+  <div class="user-container">
+    <div class="user">
+      <img [attr.src]="comment.user.image" alt="user image" class="avatar" />
+      <div class="names-container">
+        <span class="name">{{ comment.user.name }}</span>
+        <span class="username">@{{ comment.user.username }}</span>
+      </div>
+    </div>
+
+    <!-- <button class="replyBtn">Reply</button> -->
+    <button class="cancelBtn">Cancel</button>
+  </div>
+
+  <p class="comment-text">
+    {{ comment.content }}
+  </p>
+
+  <div [hidden]="true" class="reply-comment-text">
+    <textarea
+      name=""
+      placeholder="Ctrl + Enter"
+      class="form__input form__textarea"
+    ></textarea>
+    <div>
+      <button class="app__button--small bg-primaryBtn">Post Comment</button>
+    </div>
+  </div>
+
+  <ul class="nested-ul" [ngClass]="{ 'before-border': comment.replies.length }">
+    <li *ngFor="let reply of comment.replies" class="comment-container">
+      <div class="user-container">
+        <div class="user">
+          <img [attr.src]="reply.user.image" alt="user image" class="avatar" />
+          <div class="names-container">
+            <span class="name">{{ reply.user.name }}</span>
+            <span class="username">@{{ reply.user.username }}</span>
+          </div>
+        </div>
+
+        <button class="replyBtn">Reply</button>
+        <!-- <button class="cancelBtn">Cancel</button> -->
+      </div>
+
+      <p class="comment-text">
+        <span class="replyingto"> @{{ reply.replyingTo }} </span>
+        {{ reply.content }}
+      </p>
+
+      <div [hidden]="true" class="reply-comment-text">
+        <textarea
+          name=""
+          placeholder="Ctrl + Enter"
+          class="form__input form__textarea"
+        ></textarea>
+        <div>
+          <button class="app__button--small bg-primaryBtn">Post Comment</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li>

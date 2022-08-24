@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.comment-container {
+  @apply flex flex-col gap-3;
+}
+
+.user {
+  @apply flex items-center gap-4;
+}
+.user-container {
+  @apply flex justify-between items-center;
+}
+
+.avatar {
+  @apply rounded-full w-12 inline-block;
+}
+
+.name {
+  @apply text-sm font-bold text-darkGreyBlue;
+}
+.username {
+  @apply text-sm font-normal text-mediumGrey;
+}
+
+.names-container {
+  @apply inline-flex flex-col h-max;
+}
+
+.replyBtn,
+.cancelBtn {
+  @apply text-base font-medium border-b-2 border-solid border-transparent;
+  transition: border-color ease-in-out 0.25s;
+  @media screen and (hover: hover) {
+    &:hover {
+      @apply border-current;
+    }
+  }
+}
+
+.replyBtn{
+  @apply  text-darkBlue ;
+}
+
+.cancelBtn{
+  @apply text-mediumGrey;
+}
+
+.comment-text {
+  @apply text-sm md:text-base font-normal text-mediumGrey;
+}
+
+.reply-comment-text {
+  @apply flex justify-between flex-col sm:flex-row gap-4 pb-5;
+  @media screen and (min-width: 548px) {
+    flex-flow: row nowrap;
+
+    & .app__button--small {
+      @apply w-max;
+    }
+  }
+}
+
+.replyingto {
+  @apply text-base font-bold text-primaryBtn;
+}
+
+.nested-ul {
+  @apply pl-5 pt-4 md:pl-11 pb-2;
+}
+
+.before-border {
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0px;
+    width: 1px;
+    height: calc(100% - 30px);
+    background-color: #e6e6e6;
+    border-radius: 50%;
+    opacity: 0.8;
+
+    @media screen and (min-width: 768px) {
+      left: 15px;
+      width: 0.8px;
+    }
+  }
+}

@@ -31,6 +31,7 @@ import { RoadmapComponent } from './ui/roadmap/roadmap.component';
 import { RoadmapColumn } from './ui/roadmap-column/roadmap-column.component';
 import { RoadmapCardColumn } from './ui/roadmap-card-column/roadmap-card-column.component';
 import { FeedBackDetailComponent } from './ui/feedback-detail/feedback-detail.component';
+import { FeedbackCommentComponent } from './ui/feedback-comment/feedback-comment.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { FeedBackDetailComponent } from './ui/feedback-detail/feedback-detail.co
     RoadmapComponent,
     RoadmapColumn,
     RoadmapCardColumn,
-    FeedBackDetailComponent
+    FeedBackDetailComponent ,
+    FeedbackCommentComponent
   ],
   imports: [
     BrowserModule,

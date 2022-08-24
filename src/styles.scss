@@ -400,6 +400,10 @@ li {
     &--large {
       @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-5 w-full max-w-[170px] justify-center max-h-14 self-center;
     }
+
+    &--small {
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-3 px-2.5 w-full max-w-[170px] justify-center max-h-14 self-center;
+    }
   }
 }
 
@@ -412,7 +416,7 @@ li {
 }
 
 .form {
-  @apply flex flex-col gap-7   pb-52;
+  @apply flex flex-col gap-7   pb-14;
 
   &__container{
     @apply flex flex-col gap-4
@@ -436,7 +440,7 @@ li {
   }
 
   &__textarea{
-    @apply appearance-none;
+    @apply appearance-none
   }
 
   &__error-message{
@@ -455,7 +459,7 @@ li {
 
     &__fb-category-element--active,
     &__view-button,
-    &__button--large {
+    &__button--large,&__button--small {
       @apply cursor-pointer transition-opacity;
       &:hover {
         opacity: 0.8;
@@ -479,7 +483,11 @@ li {
   .app {
     &__button {
       &--large {
-        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-2 w-full max-w-[170px] text-sm;
+        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4 px-0 w-full max-w-[140px] text-sm;
+      }
+
+      &--small {
+        @apply rounded-xl cursor-pointer flex items-center relative font-bold py-4  w-full max-w-[140px] text-sm;
       }
     }
   }

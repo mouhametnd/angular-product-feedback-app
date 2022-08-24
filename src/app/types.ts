@@ -15,7 +15,7 @@ export interface IEditFormValues extends IBaseFormValues {
   fbStatus: ISelectOption;
 }
 
-export interface IFeedBack{
+export interface IFeedBack {
   id: number;
   title: string;
   category: string;
@@ -26,11 +26,17 @@ export interface IFeedBack{
   comments: IComment[];
 }
 
-
 export interface IComment {
   id: number;
   content: string;
   user: IUser;
+  replies: IReply[];
+}
+
+export interface IReply {
+  user: IUser;
+  content: string;
+  replyingTo: string;
 }
 
 export interface IUser {
