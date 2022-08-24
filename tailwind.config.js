@@ -27,7 +27,10 @@ module.exports = {
         suggestionClr: "#1feaad",
       },
       screens: {
-        maxmd: { max: "768px" },
+        maxmd: { max: "767px" },
+        maxxs: { max: "578px" },
+        md: "767px",
+        xs: "578px",
       },
     },
   },

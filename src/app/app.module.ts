@@ -32,6 +32,7 @@ import { RoadmapColumn } from './ui/roadmap-column/roadmap-column.component';
 import { RoadmapCardColumn } from './ui/roadmap-card-column/roadmap-card-column.component';
 import { FeedBackDetailComponent } from './ui/feedback-detail/feedback-detail.component';
 import { FeedbackCommentComponent } from './ui/feedback-comment/feedback-comment.component';
+import { appStore } from './store/store';
 
 @NgModule({
   declarations: [
@@ -59,13 +60,15 @@ import { FeedbackCommentComponent } from './ui/feedback-comment/feedback-comment
     RoadmapComponent,
     RoadmapColumn,
     RoadmapCardColumn,
-    FeedBackDetailComponent ,
-    FeedbackCommentComponent
+    FeedBackDetailComponent,
+    FeedbackCommentComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    appStore,
     ReactiveFormsModule,
+
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

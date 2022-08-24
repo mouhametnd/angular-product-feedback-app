@@ -3,14 +3,15 @@
     extraClasses
   }}"
   [ngClass]="{ 'fb--row': isFlexCol }"
+  [routerLink]="['/feedback-detail', feedback.id]"
 >
-  <div class="fb__top-container flex w-full ">
+  <div class="fb__top-container flex w-full">
     <fedback-upvote-element
       [isFlexCol]="isFlexCol"
       [numUpvotes]="feedback.upvotes"
     ></fedback-upvote-element>
 
-    <div class="fb__title-container flex flex-col gap-1 w-full" >
+    <div class="fb__title-container flex flex-col gap-1 w-full">
       <h4
         class="fb__title text-lg text-darkGreyBlue font-medium transition-colors"
       >

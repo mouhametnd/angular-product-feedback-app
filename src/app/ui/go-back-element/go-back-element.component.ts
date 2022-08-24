@@ -6,6 +6,5 @@ import { Component, Input } from "@angular/core";
   styleUrls: ["./go-back-element.component.scss"]
 })
 export class GoBackElementComponent {
-  @Input() goBackFn!: Function;
   @Input() extraClasses = '';
 }

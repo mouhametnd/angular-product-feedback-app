@@ -1,6 +1,12 @@
-<section class="flex flex-col gap-8 max-w-2xl mx-auto pb-10">
+<section *ngIf="!feedback">
+  <h2 class="text-red-500">No Feedback found</h2>
+</section>
+
+<!-- todo do friendly the 404 error -->
+
+<section *ngIf="feedback" class="flex flex-col gap-8 max-w-2xl mx-auto pb-10">
   <div class="flex justify-between items-center">
-    <go-back-element></go-back-element>
+    <go-back-element routerLink="/"></go-back-element>
     <button class="app__button--large bg-darkBlue">Edit Feedback</button>
   </div>
 
@@ -17,7 +23,8 @@
       >{{ feedback.comments.length }} <span class="pl-2">Comments</span></span
     >
 
-    <ul class="flex flex-col gap-8 pt-6">
+    <ul class="flex flex-col gap-8 pt-6"> 
+      <!-- todo put border x between li  -->
       <feedback-comment
         *ngFor="let comment of feedback.comments"
         [comment]="comment"
@@ -28,13 +35,18 @@
   <div class="app__white-wrapper flex flex-col gap-5">
     <span class="text-lg font-bold text-darkGreyBlue"> Add Comments</span>
 
-    <textarea name="" placeholder="Ctrl + Enter" class="form__input form__textarea"></textarea>
+    <textarea
+      name=""
+      placeholder="Ctrl + Enter"
+      class="form__input form__textarea"
+    ></textarea>
 
     <div class="flex justify-between items-center">
-        <span class="text-base font-normal text-darkGreyBlue"> 225 characters left</span>
+      <span class="text-base font-normal text-darkGreyBlue">
+        225 characters left</span
+      >
 
-        <button class="app__button--small bg-primaryBtn">Post Comment</button>
-
+      <button class="app__button--small bg-primaryBtn">Post Comment</button>
     </div>
   </div>
 </section>

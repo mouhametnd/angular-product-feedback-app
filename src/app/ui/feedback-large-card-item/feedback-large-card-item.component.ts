@@ -6,13 +6,10 @@ import { IFeedBack } from 'src/app/types';
   templateUrl: './feedback-large-card-item.component.html',
   styleUrls: ['./feedback-card-item.component.scss'],
 })
-export class FeedBackLargeCardItemComponent implements AfterViewInit {
+export class FeedBackLargeCardItemComponent {
   @Input() feedback!: IFeedBack;
   @Input() isFlexCol = false;
   @Input() extraClasses = '';
 
-
-  ngAfterViewInit() {
-    console.log(this.feedback);
-  }
+ 
 }

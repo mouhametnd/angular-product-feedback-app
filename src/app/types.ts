@@ -1,4 +1,5 @@
 import { FormControl } from '@angular/forms';
+import dataJson from '../data.json'
 
 export interface ISelectOption {
   title: string;
@@ -16,7 +17,7 @@ export interface IEditFormValues extends IBaseFormValues {
 }
 
 export interface IFeedBack {
-  id: number;
+  id: string;
   title: string;
   category: string;
   upvotes: number;
@@ -27,7 +28,7 @@ export interface IFeedBack {
 }
 
 export interface IComment {
-  id: number;
+  id: string;
   content: string;
   user: IUser;
   replies: IReply[];
@@ -43,4 +44,8 @@ export interface IUser {
   image: string;
   name: string;
   username: string;
+}
+
+export interface IAppStore {
+  data: typeof dataJson
 }
