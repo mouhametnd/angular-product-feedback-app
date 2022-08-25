@@ -27,7 +27,7 @@ export class SuggestionBarComponent implements OnInit {
 
   ngOnInit() {
     this._store.select('data').subscribe(({ numOfSuggestionFbs, sorter }) => {
-      console.log(numOfSuggestionFbs)
+      console.log('sss',numOfSuggestionFbs)
       this.numOfSuggestionFbs = numOfSuggestionFbs;
       this.selectedOption = sorter;
     });

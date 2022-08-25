@@ -21,7 +21,7 @@
           </span>
         </div>
         <span
-          *ngIf="shouldDisplayMessageError(baseForm.controls.fbTitle)"
+          *ngIf="shouldDisplayMessageError(baseForm.controls.title)"
           class="form__error-message"
           >Field Value is incorrect!!</span
         >
@@ -29,7 +29,7 @@
           type="text"
           placeholder="Max 50 characters"
           class="form__input"
-          formControlName="fbTitle"
+          formControlName="title"
           (change)="emitter()"
         />
       </div>
@@ -72,7 +72,7 @@
           </span>
         </div>
         <span
-          *ngIf="shouldDisplayMessageError(baseForm.controls.fbDetail)"
+          *ngIf="shouldDisplayMessageError(baseForm.controls.description)"
           class="form__error-message"
           >Field Value is incorrect!!</span
         >
@@ -80,7 +80,7 @@
           name=""
           class="form__input form__textarea"
           placeholder="Max 255 characters"
-          formControlName="fbDetail"
+          formControlName="description"
           (change)="emitter()"
         ></textarea>
       </div>

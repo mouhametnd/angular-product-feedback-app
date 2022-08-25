@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { fbCategories, fbStatus } from 'src/app/constants/constans';
-import { IBaseFormValues, IEditFormValues, ISelectOption } from 'src/app/types';
+import { IBaseFormState, IEditFormValues, ISelectOption } from 'src/app/types';
 
 @Component({
   selector: 'edit-feedback',
@@ -15,7 +15,7 @@ export class EditFeedbackComponent {
   }
   formValues!: IEditFormValues;
 
-  baseFormListener(baseFormValues: IBaseFormValues) {
+  baseFormListener(baseFormValues: IBaseFormState) {
     this.formValues = { ...baseFormValues, fbStatus: this.selectedOption };
   }
 }

@@ -1,5 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import {
+  IBaseFormState,
   IFbCategory,
   IFbSortby,
   TFbCategoryValues,
@@ -19,3 +20,8 @@ export const toggleUpvoteFbAct = createAction(
   '[data] UPVOTE_TOGGLE',
   props<{ id: string }>()
 );
+export const createFbAct = createAction(
+  '[data] CREATE',
+  props<{ fbProps: Omit<IBaseFormState, 'areInputsValid'> }>()
+);
+export const refreshStore = createAction('[data] REFRESH STORE');

@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
       const { productRequests, filterCategory, sorter } = stramedData;
 
 
-      this._store.subscribe(stream => console.log('home store subscribed'))
-      this._actions.subscribe(stream => console.log('home action subscribed'))
+      // this._store.subscribe(stream => console.log('home store subscribed'))
+      // this._actions.subscribe(stream => console.log('home action subscribed'))
 
       let filteredFbs = FeedbackHelper.filterFbByStatus(
         'SUGGESTION',

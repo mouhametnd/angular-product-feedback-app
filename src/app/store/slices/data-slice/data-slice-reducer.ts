@@ -4,11 +4,14 @@ import {
   sortDataAct,
   updateDataAct,
   toggleUpvoteFbAct,
+  createFbAct,
+  refreshStore,
 } from './data-slice-actions';
 import initialDataJson from '../../../../data.json';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
-import { IAppData, IFeedBack, IJSonData } from 'src/app/types';
+import { IAppData, IFeedBack, IJSonData, ISelectOption } from 'src/app/types';
 import { fbCategories, fbSortOptions } from 'src/app/constants/constans';
+import { FeedBackCLass } from 'src/app/classes/Feedback-class.class';
 
 localStorage.clear();
 let dataFromLS = JSON.parse(
@@ -19,15 +22,9 @@ if (!dataFromLS) {
   dataFromLS = initialDataJson as IJSonData;
 }
 
-const [numOfPlannedFbs, numOfInProgressFbs, numOfLiveFbs, numOfSuggestionFbs] =
-  FeedbackHelper.getNumOfFbsByStatus(dataFromLS.productRequests);
-
 const initialState: IAppData = {
   ...dataFromLS,
-  numOfInProgressFbs,
-  numOfLiveFbs,
-  numOfPlannedFbs,
-  numOfSuggestionFbs,
+  ...FeedbackHelper.getNumOfFbsByStatus(dataFromLS.productRequests),
   filterCategory: fbCategories[0],
   sorter: fbSortOptions[0],
 };
@@ -43,7 +40,6 @@ export const dataSliceReducer = createReducer(
     return { ...state, filterCategory: category };
   }),
   on(sortDataAct, (state, { sorter }) => {
-    console.log('reducer fired');
     return { ...state, sorter };
   }),
   on(toggleUpvoteFbAct, (state, { id }) => {
@@ -55,6 +51,17 @@ export const dataSliceReducer = createReducer(
     isUpvoted ? (clickedFb.upvotes -= 1) : (clickedFb.upvotes += 1);
     clickedFb.upvoted = !isUpvoted;
 
-    return newStoreRef
+    return newStoreRef;
+  }),
+  on(createFbAct, (state, { fbProps }) => {
+    const { category, description, title } = fbProps;
+    const newFb = new FeedBackCLass(title, description, category);
+    const newProductRequest = [...state.productRequests, newFb];
+
+    return {
+      ...state,
+      ...FeedbackHelper.getNumOfFbsByStatus(newProductRequest),
+      productRequests: newProductRequest,
+    };
   })
 );

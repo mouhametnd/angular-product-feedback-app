@@ -6,13 +6,14 @@ export interface ISelectOption {
   value: string;
 }
 
-export interface IBaseFormValues {
-  fbCategory: ISelectOption;
-  fbTitle: FormControl<string | null>;
-  fbDetail: FormControl<string | null>;
+export interface IBaseFormState {
+  category: string;
+  title: string;
+  description: string;
+  areInputsValid: boolean;
 }
 
-export interface IEditFormValues extends IBaseFormValues {
+export interface IEditFormValues extends IBaseFormState {
   fbStatus: ISelectOption;
 }
 

@@ -1,27 +1,32 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { fbCategories, fbStatus } from 'src/app/constants/constans';
-import { IBaseFormValues } from 'src/app/types';
+import { createFbAct } from 'src/app/store/slices/data-slice/data-slice-actions';
+import { IAppStore, IBaseFormState } from 'src/app/types';
 
 @Component({
   selector: 'create-feedback',
   templateUrl: './create-feedback.component.html',
 })
 export class CreateFeedbackComponent {
-  formValues!: IBaseFormValues;
-  baseFormListener(baseFormValues: IBaseFormValues) {
-    this.formValues = baseFormValues;
+  baseFromState!: IBaseFormState;
+  goBackLink: string = '/';
+  baseFromStateListener(baseFrom: IBaseFormState) {
+    this.baseFromState = baseFrom;
   }
 
-  createFeedback() {
-    const { fbCategory, fbDetail, fbTitle } = this.formValues;
+  constructor(private _store: Store<IAppStore>, private _router: Router) {}
 
-    if(fbDetail.errors || fbTitle.errors){
-console.log()
-    }
+  createFeedback() {
+    const { areInputsValid, category, description, title } = this.baseFromState;
+    if (!areInputsValid) return;
+
+    this._store.dispatch(
+      createFbAct({ fbProps: { category, description, title } })
+    );
+    this._router.navigate([this.goBackLink]);
 
     // todo: the base form should return a boolean value that determine if we its input ar OK
-
-    console.log(fbDetail.errors);
-    console.log(fbTitle.errors);
   }
 }

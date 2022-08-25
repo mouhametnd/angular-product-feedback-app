@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fbCategories } from 'src/app/constants/constans';
-import { IBaseFormValues, ISelectOption } from 'src/app/types';
+import { IBaseFormState, ISelectOption } from 'src/app/types';
 
 @Component({
   selector: 'base-form',
@@ -11,17 +11,17 @@ export class BaseFormComponent implements OnInit {
   @Input() formTitle!: string;
   @Input() formSvgIcon!: string;
   @Input() goBackFn!: Function;
-  @Output() formValuesEmitter = new EventEmitter<IBaseFormValues>();
+  // @Input() baseFormState!: IBaseFormState;
+  @Output() baseFromStateEmitter = new EventEmitter<IBaseFormState>();
 
-  options = fbCategories;
+  options = fbCategories.filter(({value})=> value !== 'ALL');
   selectedOption = this.options[0] as ISelectOption;
   shouldDisplay = false;
   // todo: change to should displayselect
 
-  ngOnInit(){
-    this.emitter()
+  ngOnInit() {
+    this.emitter();
   }
-
 
   toggleSelect() {
     this.shouldDisplay = !this.shouldDisplay;
@@ -32,25 +32,27 @@ export class BaseFormComponent implements OnInit {
   }
 
   emitter() {
-    const formValues = {
-      ...this.baseForm.controls,
-      fbCategory: this.selectedOption,
-    };
+    const { description, title } = this.baseForm.controls;
+    const areInputsValid = !description.errors && !title.errors;
 
-    this.formValuesEmitter.emit(formValues);
+    this.baseFromStateEmitter.emit({
+      description: description.value!,
+      title: title.value!,
+      areInputsValid,
+      category: this.selectedOption.value,
+    });
   }
 
-  fbTitle = new FormControl('', [
-    Validators.required,
-    Validators.maxLength(50),
-    Validators.minLength(3),
-  ]);
-
-  fbDetail = new FormControl('', [
-    Validators.required,
-    Validators.minLength(3),
-    Validators.maxLength(255),
-  ]);
-
-  baseForm = new FormGroup({ fbTitle: this.fbTitle, fbDetail: this.fbDetail });
+  baseForm = new FormGroup({
+    title: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(3),
+    ]),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(255),
+    ]),
+  });
 }

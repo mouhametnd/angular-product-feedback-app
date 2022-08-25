@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { map, mergeMap } from 'rxjs';
+import { EMPTY, map, mergeMap } from 'rxjs';
 import { IAppStore } from 'src/app/types';
+import { refreshStore } from '../slices/data-slice/data-slice-actions';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +11,10 @@ import { IAppStore } from 'src/app/types';
 export class RefreshDataEffect {
   constructor(private _actions$: Actions, private _store$: Store<IAppStore>) {}
 
-  refreshData$ = createEffect(
+  refreshStore$ = createEffect(
     () =>
       this._actions$.pipe(
-        ofType('[data] UPVOTE_TOGGLE'),
+        ofType('[data] UPVOTE_TOGGLE', '[data] CREATE'),
         mergeMap(() =>
           this._store$.pipe(
             map(({ data }) => {
