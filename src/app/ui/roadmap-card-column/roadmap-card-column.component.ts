@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { roadmapCategories } from 'src/app/constants/constans';
+import { roadmapStatuses } from 'src/app/constants/constans';
 import { IAppStore, IFeedBack } from 'src/app/types';
 
 @Component({
@@ -10,7 +10,7 @@ import { IAppStore, IFeedBack } from 'src/app/types';
 export class RoadmapCardColumn implements OnInit {
   constructor(private _state: Store<IAppStore>) {}
 
-  @Input() category!: typeof roadmapCategories[0];
+  @Input() status!: typeof roadmapStatuses[0];
   @Input() feedback!: IFeedBack;
 
   // todo: feedback type

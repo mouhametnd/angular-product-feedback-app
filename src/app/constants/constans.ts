@@ -1,6 +1,9 @@
 import { never } from 'rxjs';
 import { IFbCategory, IFbSortby, IFbStatus, ISelectOption } from '../types';
 
+
+// todo: get better the objecr creation with dynamic creation
+
 export const fbCategories: IFbCategory[] = [
   { title: 'ALL', value: 'ALL' },
   { title: 'UI', value: 'UI' },
@@ -13,11 +16,11 @@ export const fbCategories: IFbCategory[] = [
 export const fbStatus: IFbStatus[] = [
   { title: 'Planned', value: 'PLANNED' },
   { title: 'In Progress', value: 'IN_PROGRESS' },
-  { title: 'Suggestion', value: 'SUGGESTION' },
   { title: 'Live', value: 'LIVE' },
+  { title: 'Suggestion', value: 'SUGGESTION' },
 ];
 
-export const roadmapCategories = [
+export const roadmapStatuses = [
   {
     title: fbStatus[0].title,
     value: fbStatus[0].value,

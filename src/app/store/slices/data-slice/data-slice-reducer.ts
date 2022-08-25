@@ -19,7 +19,7 @@ if (!dataFromLS) {
   dataFromLS = initialDataJson as IJSonData;
 }
 
-const [numOfPlannedFbs, numOfInProgressFbs, numOfSuggestionFbs, numOfLiveFbs] =
+const [numOfPlannedFbs, numOfInProgressFbs, numOfLiveFbs, numOfSuggestionFbs] =
   FeedbackHelper.getNumOfFbsByStatus(dataFromLS.productRequests);
 
 const initialState: IAppData = {

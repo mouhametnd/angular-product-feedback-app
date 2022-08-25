@@ -118,3 +118,11 @@ export type TDividedFbs = {
 export type TDividedNums = {
   [K in TFbStatusValues]: number;
 };
+
+export interface IRoadmapStatus {
+  title: TFbStatusTitles;
+  value: TFbStatusValues;
+  description: string;
+  color: string;
+  quantity: number;
+}

@@ -3,12 +3,15 @@
 <section class="grid grid-cols-1 gap-14 max-w-7xl mx-auto min-h-screen">
   <base-suggestion-bar>
     <div>
-      <go-back-element extraClasses=" text-white"></go-back-element>
+      <go-back-element routerLink="/" extraClasses=" text-white"></go-back-element>
       <h2 class=" pt-3 text-2xl font-bold text-white">RoadMap</h2>
     </div>
   </base-suggestion-bar>
 
-  <div class="grid grid-cols-1 gap-10 roadmap__container-cols">
-    <roadmap-column *ngFor="let category of categories" [category]="category"></roadmap-column>
-  </div>
+  <!-- <div class="grid grid-cols-1 gap-10 roadmap__container-cols">
+    <roadmap-column *ngFor="let category of categories" [status]="category"></roadmap-column>
+  </div> -->
+  <roadmap-column ></roadmap-column>
 </section>
+
+

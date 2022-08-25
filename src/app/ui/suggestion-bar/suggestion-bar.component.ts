@@ -6,7 +6,7 @@ import { IAppStore, IFbSortby, ISelectOption } from 'src/app/types';
 
 @Component({
   selector: 'suggestion-bar',
-  templateUrl: './suggestion-bar.component.html',
+  templateUrl: './suggestion-bar.component.html'
 })
 export class SuggestionBarComponent implements OnInit {
   constructor(private _store: Store<IAppStore>) {}
@@ -27,6 +27,7 @@ export class SuggestionBarComponent implements OnInit {
 
   ngOnInit() {
     this._store.select('data').subscribe(({ numOfSuggestionFbs, sorter }) => {
+      console.log(numOfSuggestionFbs)
       this.numOfSuggestionFbs = numOfSuggestionFbs;
       this.selectedOption = sorter;
     });

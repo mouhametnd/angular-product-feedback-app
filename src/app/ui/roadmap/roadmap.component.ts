@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { roadmapCategories } from 'src/app/constants/constans';
+import { roadmapStatuses } from 'src/app/constants/constans';
 import { IAppStore } from 'src/app/types';
 
 @Component({
@@ -9,7 +9,7 @@ import { IAppStore } from 'src/app/types';
   styleUrls: ['./roadmap.component.scss'],
 })
 export class RoadmapComponent  implements OnInit{
-  categories = roadmapCategories;
+  categories = roadmapStatuses;
   constructor(private _store: Store<IAppStore>){}
 
   ngOnInit(){

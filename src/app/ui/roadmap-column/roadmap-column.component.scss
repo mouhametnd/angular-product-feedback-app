@@ -1,0 +1,9 @@
+.roadmap__container-cols {
+  @media screen and (min-width: 578px) {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    @apply gap-10
+  }
+  @media screen and (min-width: 1224px) {
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+  }
+}

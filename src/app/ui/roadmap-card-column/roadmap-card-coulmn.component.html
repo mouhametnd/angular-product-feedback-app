@@ -1,19 +1,23 @@
 <li
-  class="app__white-wrapper border-t-4 border-solid border-{{
-    category.color
-  }}"
+  class="app__white-wrapper border-t-4 border-solid border-{{ status.color }}"
 >
   <h4 class="text-black relative mb-3">
     <div
       class="absolute w-2.5 h-2.5 rounded-full left-0 top-[10px]   bg-{{
-        category.color
+        status.color
       }}"
     ></div>
 
     <span class="pl-5 text-base font-normal text-darkGreyBlue">
-      {{ category.title }}
+      {{ status.title }}
     </span>
   </h4>
 
-  <feedback-large-card-item [isFlexCol]="false" [feedback]="feedback" extraClasses="w-full "></feedback-large-card-item>
+  <ul>
+    <feedback-large-card-item
+      [isFlexCol]="false"
+      [feedback]="feedback"
+      extraClasses="w-full "
+    ></feedback-large-card-item>
+  </ul>
 </li>

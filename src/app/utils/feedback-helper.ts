@@ -83,7 +83,7 @@ export class FeedbackHelper {
       dividedNums
     );
 
-    return [PLANNED, IN_PROGRESS, SUGGESTION, LIVE];
+    return [PLANNED, IN_PROGRESS, LIVE, SUGGESTION];
   }
 
   static getFbsDivivedByStatus(feedbacks: IFeedBack[]) {
@@ -96,7 +96,7 @@ export class FeedbackHelper {
       },
       dividedFbs
     );
-
-    return [PLANNED, IN_PROGRESS, SUGGESTION, LIVE];
+    console.log([PLANNED, IN_PROGRESS, SUGGESTION, LIVE]);
+    return [PLANNED, IN_PROGRESS, LIVE, SUGGESTION];
   }
 }

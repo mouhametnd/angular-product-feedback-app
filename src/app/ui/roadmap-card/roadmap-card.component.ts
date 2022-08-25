@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { roadmapCategories } from 'src/app/constants/constans';
+import { roadmapStatuses } from 'src/app/constants/constans';
 import { filterDataAct } from 'src/app/store/slices/data-slice/data-slice-actions';
 import { IAppStore, TFbCategoryValues } from 'src/app/types';
 
