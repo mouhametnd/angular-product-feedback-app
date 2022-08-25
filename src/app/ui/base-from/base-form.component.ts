@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fbCategories } from 'src/app/constants/constans';
 import { IBaseFormValues, ISelectOption } from 'src/app/types';
@@ -7,16 +7,21 @@ import { IBaseFormValues, ISelectOption } from 'src/app/types';
   selector: 'base-form',
   templateUrl: './base-form.component.html',
 })
-export class BaseFormComponent {
+export class BaseFormComponent implements OnInit {
   @Input() formTitle!: string;
   @Input() formSvgIcon!: string;
+  @Input() goBackFn!: Function;
+  @Output() formValuesEmitter = new EventEmitter<IBaseFormValues>();
 
   options = fbCategories;
   selectedOption = this.options[0] as ISelectOption;
   shouldDisplay = false;
+  // todo: change to should displayselect
 
-  @Input() goBackFn!: Function;
-  @Output() formValuesEmitter = new EventEmitter<IBaseFormValues>();
+  ngOnInit(){
+    this.emitter()
+  }
+
 
   toggleSelect() {
     this.shouldDisplay = !this.shouldDisplay;

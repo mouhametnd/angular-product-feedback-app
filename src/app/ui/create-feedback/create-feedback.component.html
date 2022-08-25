@@ -2,5 +2,11 @@
   (formValuesEmitter)="baseFormListener($event)"
   formTitle="Create New Feedback"
   formSvgIcon="./assets/shared/icon-new-feedback.svg"
+(formValuesEmitter)="baseFormListener($event)"
 >
+
+<div buttons class="w-full flex justify-end items-center  gap-4">
+  <cancel-button goBackRouterLink="/" ></cancel-button>
+  <button (click)="createFeedback()" class="app__button--large bg-primaryBtn">Create Feedback</button>
+</div>
 </base-form>

@@ -1,76 +1,91 @@
-<dumb-form [title]="formTitle" [svgSrc]="formSvgIcon">
-  <form form class="form" [formGroup]="baseForm">
-    <div class="form__container">
-      <div class="form__container-naming">
-        <h4 class="form__input-title">Feedback Title</h4>
-        <span class="form__input-description"
-          >Add a short, descriptive headline
-        </span>
-      </div>
-      <span
-        *ngIf="shouldDisplayMessageError(baseForm.controls.fbTitle)"
-        class="form__error-message"
-        >Field Value is incorrect!!</span
-      >
-      <input
-        type="text"
-        placeholder="Max 50 characters"
-        class="form__input"
-        formControlName="fbTitle"
-        (change)="emitter()"
-      />
-    </div>
+<section class="px-2 py-5 max-w-xl mx-auto">
+  <go-back-element routerLink="/"></go-back-element>
 
-    <div class="form__container relative">
-      <div class="form__container-naming">
-        <h4 class="form__input-title">Category</h4>
-        <span class="form__input-description"
-          >Choose a category for your feedback
-        </span>
-      </div>
+  <div class="app__white-wrapper relative mt-9 flex flex-col gap-7">
+    <img
+      [attr.src]="formSvgIcon"
+      alt="svg icon"
+      class="maxmd:w-11 absolute -top-5 left-14"
+    />
 
-      <div (click)="toggleSelect()" class="cursor-pointer">
-        <div class="form__input form__select-container">
-          <span class="text-darkGrey">{{ selectedOption.title }}</span>
+    <h3 class="text-2xl font-bold text-darkGreyBlue pt-7 md:pt-10">
+      {{ formTitle }}
+    </h3>
 
-          <div
-            [ngClass]="{ 'rotate-180': shouldDisplay }"
-            class="transition-transform"
-          >
-            <icon-arrow-up></icon-arrow-up>
-          </div>
+    <form form class="form" [formGroup]="baseForm">
+      <div class="form__container">
+        <div class="form__container-naming">
+          <h4 class="form__input-title">Feedback Title</h4>
+          <span class="form__input-description"
+            >Add a short, descriptive headline
+          </span>
         </div>
-        <custom-select
-          [shouldDisplay]="shouldDisplay"
-          extraClasses="self-center absolute top-[125px] w-full left-[0px]"
-          [(selectedOption)]="selectedOption"
-          [options]="options"
-          (click)="emitter()"
-        ></custom-select>
+        <span
+          *ngIf="shouldDisplayMessageError(baseForm.controls.fbTitle)"
+          class="form__error-message"
+          >Field Value is incorrect!!</span
+        >
+        <input
+          type="text"
+          placeholder="Max 50 characters"
+          class="form__input"
+          formControlName="fbTitle"
+          (change)="emitter()"
+        />
       </div>
-    </div>
 
-    <ng-content></ng-content>
+      <div class="form__container relative">
+        <div class="form__container-naming">
+          <h4 class="form__input-title">Category</h4>
+          <span class="form__input-description"
+            >Choose a category for your feedback
+          </span>
+        </div>
 
-    <div class="form__container">
-      <div class="form__container-naming">
-        <h4 class="form__input-title">Feedback Detail</h4>
-        <span class="form__input-description"
-          >Include any specific comments on what should be improved, added, etc.
-        </span>
+        <div (click)="toggleSelect()" class="cursor-pointer">
+          <div class="form__input form__select-container">
+            <span class="text-darkGrey">{{ selectedOption.title }}</span>
+
+            <div
+              [ngClass]="{ 'rotate-180': shouldDisplay }"
+              class="transition-transform"
+            >
+              <icon-arrow-up></icon-arrow-up>
+            </div>
+          </div>
+          <custom-select
+            [shouldDisplay]="shouldDisplay"
+            extraClasses="self-center absolute top-[125px] w-full left-[0px]"
+            [(selectedOption)]="selectedOption"
+            [options]="options"
+            (click)="emitter()"
+          ></custom-select>
+        </div>
       </div>
-      <span
-        *ngIf="shouldDisplayMessageError(baseForm.controls.fbDetail)"
-        class="form__error-message"
-        >Field Value is incorrect!!</span
-      >
-      <textarea
-        name=""
-        class="form__input form__textarea"
-        placeholder="Max 255 characters"
-        formControlName="fbDetail"
-        (change)="emitter()"
-      ></textarea>
-    </div>
-  </form>
-</dumb-form>
+
+      <div class="form__container">
+        <div class="form__container-naming">
+          <h4 class="form__input-title">Feedback Detail</h4>
+          <span class="form__input-description"
+            >Include any specific comments on what should be improved, added,
+            etc.
+          </span>
+        </div>
+        <span
+          *ngIf="shouldDisplayMessageError(baseForm.controls.fbDetail)"
+          class="form__error-message"
+          >Field Value is incorrect!!</span
+        >
+        <textarea
+          name=""
+          class="form__input form__textarea"
+          placeholder="Max 255 characters"
+          formControlName="fbDetail"
+          (change)="emitter()"
+        ></textarea>
+      </div>
+    </form>
+
+    <ng-content select="[buttons]"></ng-content>
+  </div>
+</section>

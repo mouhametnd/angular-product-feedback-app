@@ -12,7 +12,7 @@ import { BaseSuggestionBarComponent } from './ui/base-suggestion-bar/base-sugges
 import { BigHeaderComponent } from './ui/big-header/big-header.component';
 import { CreateFeedbackComponent } from './ui/create-feedback/create-feedback.component';
 import { CustomSelectComponent } from './ui/custom-select/custom-select.component';
-import { DumbFormComponent } from './ui/dumb-component/dumb-form.component';
+import { DumbFormComponent } from './ui/dumb-form/dumb-form.component';
 import { EditFeedbackComponent } from './ui/edit-feedback/edit-feedback.component';
 import { FeedbackCategoriesComponent } from './ui/feedback-catergories/feedback-categories.component';
 import { FeedbackCommentElementComponent } from './ui/feedback-comment-element/feedback-comment-element.component';
@@ -35,6 +35,8 @@ import { FeedbackCommentComponent } from './ui/feedback-comment/feedback-comment
 import { appStore } from './store/store';
 import { EffectsModule } from '@ngrx/effects';
 import { RefreshDataEffect } from './store/effects/refresh-data.effects';
+import { ButtonCreateComponent } from './ui/button-create/button-create.component';
+import { CancelButtonComponent } from './ui/cancel-button/cancel-button.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { RefreshDataEffect } from './store/effects/refresh-data.effects';
     RoadmapCardColumn,
     FeedBackDetailComponent,
     FeedbackCommentComponent,
+    ButtonCreateComponent,
+    CancelButtonComponent
   ],
   imports: [
     BrowserModule,
