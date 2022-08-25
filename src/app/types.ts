@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import dataJson from '../data.json'
+import dataJson from '../data.json';
 
 export interface ISelectOption {
   title: string;
@@ -22,7 +22,7 @@ export interface IFeedBack {
   category: string;
   upvotes: number;
   upvoted: boolean;
-  status: string;
+  status: TFbStatusValues;
   description: string;
   comments: IComment[];
 }
@@ -47,5 +47,74 @@ export interface IUser {
 }
 
 export interface IAppStore {
-  data: typeof dataJson
+  data: IAppData;
 }
+
+export type TFbStatusValues = 'PLANNED' | 'IN_PROGRESS' | 'SUGGESTION' | 'LIVE';
+export type TFbStatusTitles = 'Planned' | 'In Progress' | 'Suggestion' | 'Live';
+
+export interface IFbStatus {
+  title: TFbStatusTitles;
+  value: TFbStatusValues;
+}
+
+export type TFbCategoryValues =
+  | 'ALL'
+  | 'UI'
+  | 'UX'
+  | 'ENHANCEMENT'
+  | 'BUG'
+  | 'FEATURE';
+
+export type TFbCategoryTitles =
+  | 'ALL'
+  | 'UI'
+  | 'UX'
+  | 'Enhancement'
+  | 'Bug'
+  | 'Feature';
+
+export interface IFbCategory {
+  title: TFbCategoryTitles;
+  value: TFbCategoryValues;
+}
+
+export type TFbSortValues =
+  | 'MOST_UPVOTES'
+  | 'LEAST_UPVOTES'
+  | 'MOST_COMMENTS'
+  | 'LEAST_COMMENTS';
+
+export type TfbSortByTitles =
+  | 'Most Upvotes'
+  | 'Least Upvotes'
+  | 'Most Comments'
+  | 'Least Comments';
+
+export interface IFbSortby {
+  title: TfbSortByTitles;
+  value: TFbSortValues;
+}
+
+export interface IAppData {
+  numOfInProgressFbs: number;
+  numOfLiveFbs: number;
+  numOfPlannedFbs: number;
+  numOfSuggestionFbs: number;
+  currentUser: IUser;
+  productRequests: IFeedBack[];
+  filterCategory: IFbCategory;
+  sorter: IFbSortby;
+}
+
+export interface IJSonData {
+  currentUser: IUser;
+  productRequests: IFeedBack[];
+}
+
+export type TDividedFbs = {
+  [K in TFbStatusValues]: IFeedBack[];
+};
+export type TDividedNums = {
+  [K in TFbStatusValues]: number;
+};

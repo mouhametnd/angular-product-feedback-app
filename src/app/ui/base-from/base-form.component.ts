@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fbCategories } from 'src/app/constants/constans';
-import { IBaseFormValues } from 'src/app/types';
+import { IBaseFormValues, ISelectOption } from 'src/app/types';
 
 @Component({
   selector: 'base-form',
@@ -12,7 +12,7 @@ export class BaseFormComponent {
   @Input() formSvgIcon!: string;
 
   options = fbCategories;
-  selectedOption = this.options[0];
+  selectedOption = this.options[0] as ISelectOption;
   shouldDisplay = false;
 
   @Input() goBackFn!: Function;

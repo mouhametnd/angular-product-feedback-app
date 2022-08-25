@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IAppStore, IFeedBack } from 'src/app/types';
+import { FeedbackHelper } from 'src/app/utils/feedback-helper';
 import data from '../../../data.json';
 
 @Component({
@@ -16,10 +17,9 @@ export class FeedBackDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const segmentId = this._route.snapshot.paramMap.get('id');
+    const segmentId = this._route.snapshot.paramMap.get('id') as string;
     this._private.select('data').subscribe(({ productRequests }) => {
-      
-      this.feedback = productRequests.find(({ id }) => id === segmentId);
+      this.feedback = FeedbackHelper.getFbById(segmentId, productRequests);
     });
   }
 }

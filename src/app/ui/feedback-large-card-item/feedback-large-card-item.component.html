@@ -7,6 +7,8 @@
 >
   <div class="fb__top-container flex w-full">
     <fedback-upvote-element
+      (click)="handleUpvoteClick($event)"
+      [isUpvoted]="feedback.upvoted"
       [isFlexCol]="isFlexCol"
       [numUpvotes]="feedback.upvotes"
     ></fedback-upvote-element>
@@ -27,7 +29,7 @@
 
   <div class="fb__container-comment">
     <feedback-comment-element
-      [numComments]="feedback.comments.length"
+      [numOfComments]="getFbCommentsLength(feedback.comments)"
     ></feedback-comment-element>
   </div>
 </li>

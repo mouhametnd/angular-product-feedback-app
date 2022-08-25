@@ -5,6 +5,6 @@ import { Component, Input } from '@angular/core';
   templateUrl: './feedback-comment-element.component.html',
 })
 export class FeedbackCommentElementComponent {
-  @Input() numComments!: number;
+  @Input() numOfComments!: number;
 
 }

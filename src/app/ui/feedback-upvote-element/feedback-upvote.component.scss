@@ -1,14 +1,22 @@
-@media screen and (hover: hover) {
-  .upvote-button:hover {
-    opacity: 0.7;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .upvote-button {
   flex-flow: row;
 }
+
+.isUpvoted {
+  @apply bg-darkBlue text-white;
+}
+
 @media screen and (min-width: 768px) {
   .isFlexCol {
-    flex-flow: column;
+    @apply flex-col py-3 px-3.5;
+  }
+}
+@media screen and (hover: hover) {
+  .upvote-button:hover {
+    opacity: 0.7;
   }
 }

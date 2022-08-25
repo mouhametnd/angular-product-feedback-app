@@ -6,7 +6,7 @@
         alt="icon"
         class="max-w-[25px] max-h-[25px]"
       />
-      <h4 class="inline-block font-bold text-lg">6 Suggestions</h4>
+      <h4 class="inline-block font-bold text-lg">{{numOfSuggestionFbs}} Suggetions</h4>
     </div>
 
     <div
@@ -20,7 +20,8 @@
       >
 
       <custom-select
-        [options]="sortByOptions"
+      (click)="handleSelectClick()"
+        [options]="fbSortOptions"
         [shouldDisplay]="shouldDisplaySelect"
         extraClasses="self-center absolute top-[45px] left-[-7px] w-max"
         [(selectedOption)]="selectedOption"

@@ -8,15 +8,14 @@ import { IBaseFormValues, IEditFormValues, ISelectOption } from 'src/app/types';
 })
 export class EditFeedbackComponent {
   options = fbStatus;
-  selectedOption = this.options[0];
+  selectedOption = this.options[0] as ISelectOption;
   shouldDisplay = false;
   toggleSelect() {
     this.shouldDisplay = !this.shouldDisplay;
   }
-  formValues!: IEditFormValues
+  formValues!: IEditFormValues;
 
-  baseFormListener(baseFormValues:  IBaseFormValues) {
+  baseFormListener(baseFormValues: IBaseFormValues) {
     this.formValues = { ...baseFormValues, fbStatus: this.selectedOption };
-
   }
 }

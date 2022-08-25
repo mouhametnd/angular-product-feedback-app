@@ -1,6 +1,7 @@
-import { ISelectOption } from '../types';
+import { never } from 'rxjs';
+import { IFbCategory, IFbSortby, IFbStatus, ISelectOption } from '../types';
 
-export const fbCategories = [
+export const fbCategories: IFbCategory[] = [
   { title: 'ALL', value: 'ALL' },
   { title: 'UI', value: 'UI' },
   { title: 'UX', value: 'UX' },
@@ -9,7 +10,7 @@ export const fbCategories = [
   { title: 'Feature', value: 'FEATURE' },
 ];
 
-export const fbStatus = [
+export const fbStatus: IFbStatus[] = [
   { title: 'Planned', value: 'PLANNED' },
   { title: 'In Progress', value: 'IN_PROGRESS' },
   { title: 'Suggestion', value: 'SUGGESTION' },
@@ -48,9 +49,9 @@ export const roadmapCategories = [
   },
 ];
 
-export const sortByOptions: ISelectOption[] = [
-  { title: 'Most Upvotes', value: 'most-upvotes' },
-  { title: 'Least Upvotes', value: 'least-upvotes' },
-  { title: 'Most Comments', value: 'most-comments' },
-  { title: 'Least Comments', value: 'least-comments' },
+export const fbSortOptions: IFbSortby[] = [
+  { title: 'Most Upvotes', value: 'MOST_UPVOTES' },
+  { title: 'Least Upvotes', value: 'LEAST_UPVOTES' },
+  { title: 'Most Comments', value: 'MOST_COMMENTS' },
+  { title: 'Least Comments', value: 'LEAST_COMMENTS' },
 ];

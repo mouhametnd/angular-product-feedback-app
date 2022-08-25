@@ -24,7 +24,7 @@ import { GoBackElementComponent } from './ui/go-back-element/go-back-element.com
 import { HomeComponent } from './ui/home/home.component';
 import { MobileHeaderComponent } from './ui/mobile-header/mobile-header.component';
 import { PresentationCardComponent } from './ui/presentation-card/presentation-card.component';
-import { RoadmapItemComponent } from './ui/roadmap-item/roadmap-item.component';
+import { RoadmapStatusComponent } from './ui/roadmap-status/roadmap-status.component';
 import { RoadmapCardComponent } from './ui/roadmap-card/roadmap-card.component';
 import { SuggestionBarComponent } from './ui/suggestion-bar/suggestion-bar.component';
 import { RoadmapComponent } from './ui/roadmap/roadmap.component';
@@ -33,6 +33,8 @@ import { RoadmapCardColumn } from './ui/roadmap-card-column/roadmap-card-column.
 import { FeedBackDetailComponent } from './ui/feedback-detail/feedback-detail.component';
 import { FeedbackCommentComponent } from './ui/feedback-comment/feedback-comment.component';
 import { appStore } from './store/store';
+import { EffectsModule } from '@ngrx/effects';
+import { RefreshDataEffect } from './store/effects/refresh-data.effects';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,7 @@ import { appStore } from './store/store';
     MobileHeaderComponent,
     FeedbackCategoriesComponent,
     RoadmapCardComponent,
-    RoadmapItemComponent,
+    RoadmapStatusComponent,
     BigHeaderComponent,
     PresentationCardComponent,
     SuggestionBarComponent,
@@ -66,8 +68,9 @@ import { appStore } from './store/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    appStore,
     ReactiveFormsModule,
+    appStore,
+    EffectsModule.forRoot([RefreshDataEffect]),
 
     StoreDevtoolsModule.instrument({
       maxAge: 25,

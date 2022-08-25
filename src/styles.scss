@@ -389,7 +389,7 @@ li {
   }
 
   &__fb-category-element {
-    @apply rounded-[10px] py-[9px] px-[20.6px] w-fit h-fit pointer-events-auto text-center text-xs  leading-[1.9rem] font-bold bg-lightBlue text-darkBlue;
+    @apply rounded-[10px] py-[5px] px-[20.6px] w-fit h-fit pointer-events-auto text-center text-xs  leading-[1.9rem] font-bold bg-lightBlue text-darkBlue;
 
     &--active {
       @apply bg-darkBlue text-white;

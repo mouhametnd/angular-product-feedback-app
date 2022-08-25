@@ -1,9 +1,14 @@
 <div class="app__white-wrapper">
   <div class="flex gap-3 flex-wrap">
     <button
-      class="app__fb-category-element app__fb-category-element--button"
+      class="app__fb-category-element app__fb-category-element--active"
       *ngFor="let category of fbCategories"
-      >{{ category.title }}</button
+      [ngClass]="{
+        'app__fb-category-element--active': isButtonActive(category.value)
+      }"
+      (click)="handleClick(category)"
     >
+      {{ category.title }}
+    </button>
   </div>
 </div>
