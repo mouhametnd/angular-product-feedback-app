@@ -68,7 +68,7 @@ export class FeedbackHelper {
   }
 
   static getFbById(id: string, feedbacks: IFeedBack[]) {
-    return feedbacks.find((fb) => fb.id === id);
+    return feedbacks.find((fb) => fb.id === id) ?? null;
   }
 
   static getNumOfFbsByStatus(feedbacks: IFeedBack[]) {

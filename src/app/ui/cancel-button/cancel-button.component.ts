@@ -5,5 +5,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './cancel-button.component.html',
 })
 export class CancelButtonComponent {
-  @Input() goBackRouterLink!: string;
+
 }

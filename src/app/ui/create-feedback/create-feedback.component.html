@@ -2,11 +2,11 @@
 <base-form
   formTitle="Create New Feedback"
   formSvgIcon="./assets/shared/icon-new-feedback.svg"
-  (baseFromStateEmitter)="baseFromStateListener($event)"
+  (baseFormStateEmitter)="baseFormStateListener($event)"
 >
 
 <div buttons class="w-full flex justify-end items-center  gap-4">
-  <cancel-button goBackRouterLink="/" ></cancel-button>
-  <button (click)="createFeedback()" class="app__button--large bg-primaryBtn">Create Feedback</button>
+  <button [routerLink]="goBackLink"  class="app__button--cancel">Cancel</button>
+  <button (click)="createFeedback()" class="app__button--normal">Create Feedback</button>
 </div>
 </base-form>

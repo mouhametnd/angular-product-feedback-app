@@ -7,7 +7,12 @@
 <section *ngIf="feedback" class="flex flex-col gap-8 max-w-2xl mx-auto pb-10">
   <div class="flex justify-between items-center">
     <go-back-element routerLink="/"></go-back-element>
-    <button class="app__button--large bg-darkBlue">Edit Feedback</button>
+    <button
+      routerLink="/feedback-edit/{{ feedback.id }}"
+      class="app__button--edit"
+    >
+      Edit Feedback
+    </button>
   </div>
 
   <div>
@@ -22,8 +27,9 @@
     <span class="text-lg font-bold text-darkGreyBlue"
       >{{ feedback.comments.length }} <span class="pl-2">Comments</span></span
     >
+    <!-- todo: change how comments are getted -->
 
-    <ul class="flex flex-col gap-8 pt-6"> 
+    <ul class="flex flex-col gap-8 pt-6">
       <!-- todo put border x between li  -->
       <feedback-comment
         *ngFor="let comment of feedback.comments"

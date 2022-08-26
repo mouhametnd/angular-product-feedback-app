@@ -1,7 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { fbCategories } from 'src/app/constants/constans';
-import { IBaseFormState, ISelectOption } from 'src/app/types';
+import {
+  IBaseFormState,
+  ISelectOption,
+  TBaseFormDefaultValues,
+} from 'src/app/types';
 
 @Component({
   selector: 'base-form',
@@ -11,16 +15,32 @@ export class BaseFormComponent implements OnInit {
   @Input() formTitle!: string;
   @Input() formSvgIcon!: string;
   @Input() goBackFn!: Function;
+  @Input() baseFormDefaultValues: TBaseFormDefaultValues = {
+    category: fbCategories[1].value,
+    description: '',
+    title: '',
+  };
   // @Input() baseFormState!: IBaseFormState;
-  @Output() baseFromStateEmitter = new EventEmitter<IBaseFormState>();
+  @Output() baseFormStateEmitter = new EventEmitter<IBaseFormState>();
 
-  options = fbCategories.filter(({value})=> value !== 'ALL');
+  options = fbCategories.filter(({ value }) => value !== 'ALL');
   selectedOption = this.options[0] as ISelectOption;
   shouldDisplay = false;
   // todo: change to should displayselect
 
   ngOnInit() {
     this.emitter();
+    const { category, description, title } = this.baseFormDefaultValues;
+    this.selectedOption = fbCategories.find(
+      ({ value }) => value === category
+    ) as ISelectOption;
+
+    if (title && description) {
+      this.baseForm.setValue({ title, description });
+      this.baseForm.controls.description.markAllAsTouched();
+      this.baseForm.controls.title.markAllAsTouched();
+      this.emitter();
+    }
   }
 
   toggleSelect() {
@@ -35,7 +55,7 @@ export class BaseFormComponent implements OnInit {
     const { description, title } = this.baseForm.controls;
     const areInputsValid = !description.errors && !title.errors;
 
-    this.baseFromStateEmitter.emit({
+    this.baseFormStateEmitter.emit({
       description: description.value!,
       title: title.value!,
       areInputsValid,

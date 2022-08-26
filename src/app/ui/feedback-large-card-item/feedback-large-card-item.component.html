@@ -3,7 +3,7 @@
     extraClasses
   }}"
   [ngClass]="{ 'fb--row': isFlexCol }"
-  [routerLink]="['/feedback-detail', feedback.id]"
+  (click)="handleCardClick()"
 >
   <div class="fb__top-container flex w-full">
     <fedback-upvote-element

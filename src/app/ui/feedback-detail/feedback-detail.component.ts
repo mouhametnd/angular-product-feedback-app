@@ -10,15 +10,15 @@ import data from '../../../data.json';
   templateUrl: './feedback-detail.component.html',
 })
 export class FeedBackDetailComponent implements OnInit {
-  feedback!: IFeedBack | undefined;
+  feedback!: IFeedBack | null;
   constructor(
-    private _private: Store<IAppStore>,
+    private _store: Store<IAppStore>,
     private _route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     const segmentId = this._route.snapshot.paramMap.get('id') as string;
-    this._private.select('data').subscribe(({ productRequests }) => {
+    this._store.select('data').subscribe(({ productRequests }) => {
       this.feedback = FeedbackHelper.getFbById(segmentId, productRequests);
     });
   }

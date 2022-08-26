@@ -5,11 +5,17 @@ import {
   updateDataAct,
   toggleUpvoteFbAct,
   createFbAct,
-  refreshStore,
+  saveChangesAct,
 } from './data-slice-actions';
 import initialDataJson from '../../../../data.json';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
-import { IAppData, IFeedBack, IJSonData, ISelectOption } from 'src/app/types';
+import {
+  IAppData,
+  IFeedBack,
+  IJSonData,
+  ISelectOption,
+  TFbStatusValues,
+} from 'src/app/types';
 import { fbCategories, fbSortOptions } from 'src/app/constants/constans';
 import { FeedBackCLass } from 'src/app/classes/Feedback-class.class';
 
@@ -57,6 +63,30 @@ export const dataSliceReducer = createReducer(
     const { category, description, title } = fbProps;
     const newFb = new FeedBackCLass(title, description, category);
     const newProductRequest = [...state.productRequests, newFb];
+
+    return {
+      ...state,
+      ...FeedbackHelper.getNumOfFbsByStatus(newProductRequest),
+      productRequests: newProductRequest,
+    };
+  }),
+  on(saveChangesAct, (state, { fbProps }) => {
+    const newProductRequest = [...state.productRequests];
+    const { category, description, title, id } = fbProps;
+
+    const newStatus = fbProps.status as TFbStatusValues;
+    const selectedFb = FeedbackHelper.getFbById(
+      id,
+      newProductRequest
+    ) as IFeedBack;
+
+    newProductRequest.splice(newProductRequest.indexOf(selectedFb), 1, {
+      ...selectedFb,
+      title,
+      description,
+      category,
+      status: newStatus,
+    });
 
     return {
       ...state,

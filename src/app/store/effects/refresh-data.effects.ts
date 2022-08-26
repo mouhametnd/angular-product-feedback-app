@@ -3,7 +3,6 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { EMPTY, map, mergeMap } from 'rxjs';
 import { IAppStore } from 'src/app/types';
-import { refreshStore } from '../slices/data-slice/data-slice-actions';
 
 @Injectable({
   providedIn: 'root',

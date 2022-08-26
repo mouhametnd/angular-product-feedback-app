@@ -25,6 +25,8 @@ module.exports = {
         inProgressClr: "#ad1fea",
         liveClr: "#62bcfa",
         suggestionClr: "#1feaad",
+        bgRed: "#d73737"
+
       },
       screens: {
         maxmd: { max: "767px" },

@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { toggleUpvoteFbAct } from 'src/app/store/slices/data-slice/data-slice-actions';
+import { setSelectedFbAct } from 'src/app/store/slices/selected-feedback-slice/selected-feedback-slice.action';
 import { IAppStore, IFeedBack } from 'src/app/types';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
 
@@ -10,7 +12,7 @@ import { FeedbackHelper } from 'src/app/utils/feedback-helper';
   styleUrls: ['./feedback-card-item.component.scss'],
 })
 export class FeedBackLargeCardItemComponent {
-  constructor(private _store:Store<IAppStore>){}
+  constructor(private _store: Store<IAppStore>, private _router: Router) {}
   @Input() feedback!: IFeedBack;
   @Input() isFlexCol = false;
   @Input() extraClasses = '';
@@ -18,7 +20,12 @@ export class FeedBackLargeCardItemComponent {
 
   handleUpvoteClick(e: Event) {
     e.stopPropagation();
-    this._store.dispatch(toggleUpvoteFbAct({id: this.feedback.id}))
+    this._store.dispatch(toggleUpvoteFbAct({ id: this.feedback.id }));
+  }
+
+  handleCardClick() {
+    this._router.navigate(['/feedback-detail', this.feedback.id]);
+    this._store.dispatch(setSelectedFbAct({ fb: this.feedback }));
   }
 
   // todo: change name of this component and file

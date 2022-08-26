@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { fbCategories, fbStatus } from 'src/app/constants/constans';
@@ -10,16 +10,16 @@ import { IAppStore, IBaseFormState } from 'src/app/types';
   templateUrl: './create-feedback.component.html',
 })
 export class CreateFeedbackComponent {
-  baseFromState!: IBaseFormState;
-  goBackLink: string = '/';
-  baseFromStateListener(baseFrom: IBaseFormState) {
-    this.baseFromState = baseFrom;
+  baseFormState!: IBaseFormState;
+  @Input() goBackLink: string = '/';
+  baseFormStateListener(baseForm: IBaseFormState) {
+    this.baseFormState = baseForm;
   }
 
   constructor(private _store: Store<IAppStore>, private _router: Router) {}
 
   createFeedback() {
-    const { areInputsValid, category, description, title } = this.baseFromState;
+    const { areInputsValid, category, description, title } = this.baseFormState;
     if (!areInputsValid) return;
 
     this._store.dispatch(
@@ -28,5 +28,6 @@ export class CreateFeedbackComponent {
     this._router.navigate([this.goBackLink]);
 
     // todo: the base form should return a boolean value that determine if we its input ar OK
+    // todo: change name to create-feedback-form
   }
 }

@@ -14,7 +14,7 @@ export interface IBaseFormState {
 }
 
 export interface IEditFormValues extends IBaseFormState {
-  fbStatus: ISelectOption;
+  status: ISelectOption;
 }
 
 export interface IFeedBack {
@@ -49,6 +49,7 @@ export interface IUser {
 
 export interface IAppStore {
   data: IAppData;
+  selectedFb: IFeedBack | null;
 }
 
 export type TFbStatusValues = 'PLANNED' | 'IN_PROGRESS' | 'SUGGESTION' | 'LIVE';
@@ -126,4 +127,11 @@ export interface IRoadmapStatus {
   description: string;
   color: string;
   quantity: number;
+}
+
+export type TBaseFormDefaultValues = Omit<IBaseFormState, 'areInputsValid'>;
+
+export interface ISaveChangesAct extends TBaseFormDefaultValues {
+  id: string;
+  status: string;
 }

@@ -13,10 +13,10 @@ export class FeedBackCLass implements IFeedBack {
     public title: string,
     public description: string,
     public category: string,
+    public status = fbStatus[3].value,
+    public id = nanoid(),
     public upvoted = false,
     public upvotes = 0,
-    public status = fbStatus[3].value,
-    public comments: IComment[] = [],
-    public id = nanoid()
+    public comments: IComment[] = []
   ) {}
 }

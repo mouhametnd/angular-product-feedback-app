@@ -15,7 +15,7 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
-  @apply bg-bgClr
+  @apply bg-bgClr;
 }
 
 /* Sections
@@ -403,7 +403,23 @@ li {
     }
 
     &--small {
-      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-3 px-2.5 w-full max-w-[170px] justify-center max-h-14 self-center min-w-[100px];
+      @apply rounded-xl cursor-pointer flex items-center relative font-bold py-3 px-2.5 w-full max-w-[130px] justify-center max-h-14 self-center min-w-[100px];
+    }
+
+    &--cancel {
+      @apply app__button--small bg-darkGreyBlue;
+    }
+
+    &--normal {
+      @apply app__button--large bg-primaryBtn;
+    }
+
+    &--edit {
+      @apply app__button--large bg-darkBlue;
+    }
+
+    &--delete {
+      @apply app__button--small bg-bgRed;
     }
   }
 }
@@ -419,13 +435,12 @@ li {
 .form {
   @apply flex flex-col gap-7   pb-14;
 
-  &__container{
-    @apply flex flex-col gap-4
+  &__container {
+    @apply flex flex-col gap-4;
   }
 
   &__input {
-    @apply bg-bgClr py-4 px-6 rounded-md text-base text-darkGrey outline-none border-none w-full; 
-
+    @apply bg-bgClr py-4 px-6 rounded-md text-base text-darkGrey outline-none border-none w-full;
 
     &-title,
     &-description {
@@ -436,15 +451,15 @@ li {
     }
   }
 
-  &__select-container{
+  &__select-container {
     @apply flex flex-row justify-between items-center text-[#3442c7];
   }
 
-  &__textarea{
-    @apply appearance-none
+  &__textarea {
+    @apply appearance-none;
   }
 
-  &__error-message{
+  &__error-message {
     @apply text-redHover text-base pl-2;
   }
 }
@@ -460,7 +475,8 @@ li {
 
     &__fb-category-element--active,
     &__view-button,
-    &__button--large,&__button--small {
+    &__button--large,
+    &__button--small {
       @apply cursor-pointer transition-opacity;
       &:hover {
         opacity: 0.8;
