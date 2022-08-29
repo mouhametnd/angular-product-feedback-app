@@ -20,13 +20,23 @@ export class BaseFormComponent implements OnInit {
     description: '',
     title: '',
   };
-  // @Input() baseFormState!: IBaseFormState;
   @Output() baseFormStateEmitter = new EventEmitter<IBaseFormState>();
 
   options = fbCategories.filter(({ value }) => value !== 'ALL');
   selectedOption = this.options[0] as ISelectOption;
-  shouldDisplay = false;
-  // todo: change to should displayselect
+  shouldDisplaySelect = false;
+  baseForm = new FormGroup({
+    title: new FormControl('', [
+      Validators.required,
+      Validators.maxLength(50),
+      Validators.minLength(3),
+    ]),
+    description: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(255),
+    ]),
+  });
 
   ngOnInit() {
     this.emitter();
@@ -44,7 +54,7 @@ export class BaseFormComponent implements OnInit {
   }
 
   toggleSelect() {
-    this.shouldDisplay = !this.shouldDisplay;
+    this.shouldDisplaySelect = !this.shouldDisplaySelect;
   }
 
   shouldDisplayMessageError(formInput: FormControl<string | null>) {
@@ -63,16 +73,5 @@ export class BaseFormComponent implements OnInit {
     });
   }
 
-  baseForm = new FormGroup({
-    title: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(50),
-      Validators.minLength(3),
-    ]),
-    description: new FormControl('', [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(255),
-    ]),
-  });
+
 }

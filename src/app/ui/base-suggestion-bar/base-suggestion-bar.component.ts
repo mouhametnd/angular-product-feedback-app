@@ -4,10 +4,4 @@ import { Component } from '@angular/core';
   selector: 'base-suggestion-bar',
   templateUrl: './base-suggestion-bar.component.html',
 })
-export class BaseSuggestionBarComponent {
-  createFeedback() {
-    // TODO create feedback
-
-    console.log('creating feedback');
-  }
-}
+export class BaseSuggestionBarComponent {}

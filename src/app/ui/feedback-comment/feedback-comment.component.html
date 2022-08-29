@@ -1,4 +1,4 @@
-<li class="comment-container">
+<li class="comment-container  " >
   <div class="user-container">
     <div class="user">
       <img [attr.src]="comment.user.image" alt="user image" class="avatar" />
@@ -31,7 +31,7 @@
 
   <ul class="nested-ul" [ngClass]="{ 'before-border': comment.replies.length }">
     <fb-reply
-      *ngFor="let reply of comment.replies"
+      *ngFor="let reply of comment.replies; trackBy: trackByContent"
       [commentId]="comment.id"
       [reply]="reply"
       [replyTo]="reply.user.username"

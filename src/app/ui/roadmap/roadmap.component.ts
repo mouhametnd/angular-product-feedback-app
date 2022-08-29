@@ -1,22 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component } from '@angular/core';
 import { roadmapStatuses } from 'src/app/constants/constans';
-import { IAppStore } from 'src/app/types';
 
 @Component({
   selector: 'roadmap',
   templateUrl: './roadmap.component.html',
   styleUrls: ['./roadmap.component.scss'],
 })
-export class RoadmapComponent  implements OnInit{
+export class RoadmapComponent {
   categories = roadmapStatuses;
-  constructor(private _store: Store<IAppStore>){}
-
-  ngOnInit(){
-      
-  }
-  
-
-
-
 }

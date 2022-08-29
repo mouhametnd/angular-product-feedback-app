@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
 import { roadmapStatuses } from 'src/app/constants/constans';
 import { IAppStore } from 'src/app/types';
 
@@ -7,16 +8,29 @@ import { IAppStore } from 'src/app/types';
   selector: 'roadmap-status',
   templateUrl: './roadmap-status.component.html',
 })
-export class RoadmapStatusComponent implements OnInit {
+export class RoadmapStatusComponent implements OnInit, OnDestroy {
   constructor(private _store: Store<IAppStore>) {}
   roadmapStatuses = roadmapStatuses;
+  subscription!: Subscription;
 
   ngOnInit() {
-    this._store.select('data').subscribe((data) => {
-      this.roadmapStatuses[1].quantity = data.numOfInProgressFbs;
-      this.roadmapStatuses[3].quantity = data.numOfLiveFbs;
-      this.roadmapStatuses[0].quantity = data.numOfPlannedFbs;
-      this.roadmapStatuses[2].quantity = data.numOfSuggestionFbs;
-    });
+    this.subscription = this._store
+      .select('data')
+      .subscribe(
+        ({
+          numOfInProgressFbs,
+          numOfPlannedFbs,
+          numOfLiveFbs,
+          numOfSuggestionFbs,
+        }) => {
+          this.roadmapStatuses[1].quantity = numOfInProgressFbs;
+          this.roadmapStatuses[3].quantity = numOfLiveFbs;
+          this.roadmapStatuses[0].quantity = numOfPlannedFbs;
+          this.roadmapStatuses[2].quantity = numOfSuggestionFbs;
+        }
+      );
+  }
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

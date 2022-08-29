@@ -1,15 +1,7 @@
-import {
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  DoCheck,
-  OnInit,
-} from '@angular/core';
-import { Actions, ofType } from '@ngrx/effects';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { nanoid } from 'nanoid';
-import { BehaviorSubject, concatMap, map, of, tap } from 'rxjs';
-import { sortDataAct } from 'src/app/store/slices/data-slice/data-slice-actions';
+import { Subscription } from 'rxjs';
 import { IAppStore, IFeedBack } from 'src/app/types';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
 
@@ -18,21 +10,18 @@ import { FeedbackHelper } from 'src/app/utils/feedback-helper';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   constructor(private _store: Store<IAppStore>, private _actions: Actions) {}
   feedbacks!: IFeedBack[];
+  subscription!: Subscription;
 
   haveFeedbacks() {
     return this.feedbacks.length;
   }
 
   ngOnInit() {
-    this._store.select('data').subscribe((stramedData) => {
+    this.subscription = this._store.select('data').subscribe((stramedData) => {
       const { productRequests, filterCategory, sorter } = stramedData;
-
-
-      // this._store.subscribe(stream => console.log('home store subscribed'))
-      // this._actions.subscribe(stream => console.log('home action subscribed'))
 
       let filteredFbs = FeedbackHelper.filterFbByStatus(
         'SUGGESTION',
@@ -46,5 +35,9 @@ export class HomeComponent implements OnInit {
 
       this.feedbacks = FeedbackHelper.sortFbsBy(sorter.value, filteredFbs);
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

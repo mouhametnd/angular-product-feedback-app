@@ -12,19 +12,12 @@ import {
 } from './data-slice-actions';
 import initialDataJson from '../../../../data.json';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
-import {
-  IAppData,
-  IFeedBack,
-  IJSonData,
-  ISelectOption,
-  TFbStatusValues,
-} from 'src/app/types';
+import { IAppData, IFeedBack, IJSonData, TFbStatusValues } from 'src/app/types';
 import { fbCategories, fbSortOptions } from 'src/app/constants/constans';
 import { FeedBackCLass } from 'src/app/classes/feedback-class.class';
 import { CommentClass } from 'src/app/classes/comment-class';
 import { ReplyClass } from 'src/app/classes/reply-class';
 
-// localStorage.clear();
 let dataFromLS = JSON.parse(
   localStorage.getItem('data') as string
 ) as IJSonData;
@@ -43,7 +36,6 @@ const initialState: IAppData = {
 export const dataSliceReducer = createReducer(
   initialState,
   on(updateDataAct, () => {
-    // return localStorage.getItem('data');
     const newState = JSON.parse(localStorage.getItem('data') || '') as IAppData;
     return newState;
   }),

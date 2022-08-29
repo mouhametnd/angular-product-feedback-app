@@ -7,7 +7,7 @@ import { IAppStore } from 'src/app/types';
 @Injectable({
   providedIn: 'root',
 })
-export class RefreshDataEffect {
+export class SaveDataEffect {
   constructor(private _actions$: Actions, private _store$: Store<IAppStore>) {}
 
   refreshStore$ = createEffect(

@@ -1,9 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { addReplyAct } from 'src/app/store/slices/data-slice/data-slice-actions';
-import { IAppStore, IReply } from 'src/app/types';
+import { Component, Input } from '@angular/core';
+import { IReply } from 'src/app/types';
 
 @Component({
   selector: 'fb-reply',

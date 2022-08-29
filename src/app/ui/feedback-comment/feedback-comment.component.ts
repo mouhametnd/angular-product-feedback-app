@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IComment } from '../../types';
+import { IComment, IReply } from '../../types';
 
 @Component({
   selector: 'feedback-comment',
@@ -11,5 +11,8 @@ export class FeedbackCommentComponent {
   shouldDisplayForm = false;
   handleShouldDisplayForm() {
     this.shouldDisplayForm = !this.shouldDisplayForm;
+  }
+  trackByContent(_: unknown, { content }: IReply) {
+    return content;
   }
 }

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { fbCategories, fbStatus } from 'src/app/constants/constans';
+import { Subscription } from 'rxjs';
+import { fbStatus } from 'src/app/constants/constans';
 import {
   deleteFbAct,
   saveChangesAct,
@@ -21,21 +21,22 @@ import { FeedbackHelper } from 'src/app/utils/feedback-helper';
   selector: 'edit-feedback',
   templateUrl: './edit-feedback.component.html',
 })
-export class EditFeedbackComponent implements OnInit {
+export class EditFeedbackComponent implements OnInit, OnDestroy {
   constructor(
     private _store: Store<IAppStore>,
     private _activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
   options = fbStatus;
-  shouldDisplay = false;
+  shouldDisplaySelect = false;
   selectedFb!: IFeedBack | null;
   selectedOption!: ISelectOption;
   formValues!: IEditFormValues;
   segmentId!: string;
   baseFormDefaultValues!: TBaseFormDefaultValues;
+  subscription!: Subscription;
   toggleSelect() {
-    this.shouldDisplay = !this.shouldDisplay;
+    this.shouldDisplaySelect = !this.shouldDisplaySelect;
   }
 
   goBackToDetial() {
@@ -48,11 +49,9 @@ export class EditFeedbackComponent implements OnInit {
 
   handleSaveChangesClick() {
     this.segmentId = this._activatedRoute.snapshot.paramMap.get('id') as string;
-
     const { areInputsValid, category, description, status, title } =
       this.formValues;
     if (!areInputsValid) return;
-
     this._store.dispatch(
       saveChangesAct({
         fbProps: {
@@ -74,28 +73,33 @@ export class EditFeedbackComponent implements OnInit {
         id: this.segmentId,
       })
     );
-
     this.router.navigate(['/']);
   }
 
   ngOnInit() {
-    this._store.select('data').subscribe(({ productRequests }) => {
-      const segmentId = this._activatedRoute.snapshot.paramMap.get(
-        'id'
-      ) as string;
-      this.selectedFb = FeedbackHelper.getFbById(segmentId, productRequests);
-      if (!this.selectedFb) return;
+    this.subscription = this._store
+      .select('data')
+      .subscribe(({ productRequests }) => {
+        const segmentId = this._activatedRoute.snapshot.paramMap.get(
+          'id'
+        ) as string;
+        this.selectedFb = FeedbackHelper.getFbById(segmentId, productRequests);
+        if (!this.selectedFb) return;
 
-      const { category, description, title, status } = this.selectedFb;
+        const { category, description, title, status } = this.selectedFb;
 
-      this.selectedOption = fbStatus.find(
-        ({ value }) => value === status
-      ) as ISelectOption;
+        this.selectedOption = fbStatus.find(
+          ({ value }) => value === status
+        ) as ISelectOption;
 
-      this.baseFormDefaultValues = { category, description, title };
-      this.segmentId = this._activatedRoute.snapshot.paramMap.get(
-        'id'
-      ) as string;
-    });
+        this.baseFormDefaultValues = { category, description, title };
+        this.segmentId = this._activatedRoute.snapshot.paramMap.get(
+          'id'
+        ) as string;
+      });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

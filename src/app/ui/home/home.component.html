@@ -1,39 +1,22 @@
 <section
-  class="flex flex-col gap-7 home lg:max-w-6xl mx-auto lg:gap-4 min-h-screen" 
+  class="flex flex-col gap-7 home lg:max-w-6xl mx-auto lg:gap-4 min-h-screen"
 >
   <big-header></big-header>
   <mobile-header></mobile-header>
   <div class="flex flex-col gap-6 lg:w-full">
     <section>
-      <suggestion-bar ></suggestion-bar>
+      <suggestion-bar></suggestion-bar>
     </section>
 
-    <feedback-large-card-list
+    <feedback-card-list
       [hidden]="!haveFeedbacks()"
       [feedbacks]="feedbacks"
-    ></feedback-large-card-list> 
+    ></feedback-card-list>
 
     <img
-      [hidden]="haveFeedbacks()" 
+      [hidden]="haveFeedbacks()"
       src="./assets/shared/undraw-lost.svg"
       alt="undraw lost"
     />
   </div>
 </section>
-<!-- todo: check all todos -->
-<!-- todo: unsubcribe whenever we've ssubscribed -->
-<!-- todo: Show illustrtion when no feedbacks is found -->
-<!-- todo: Use dollar sign $ for any observable -->
-<!-- todo: change refresh-data to refresh-fbs  -->
-<!-- todo: use trackby whenever posible -->
-<!-- todo: delete roadmap card-column -->
-<!-- todo: add line separator between comments -->
-<!-- todo: delet dumb-form -->
-<!-- todo: change name button-create to add-feedback -->
-<!-- todo: refresh data action fired by effects -->
-<!-- todo: change base-from to base-form -->
-<!-- todo: change refresh-data to save-data -->
-<!-- todo: Delete create-button and edit-button -->
-<!-- todo: change name to edit-feedback-form -->
-<!-- todo: use async pipe whenever posible -->
-<!-- todo: change name to areBaseInputsValid -->

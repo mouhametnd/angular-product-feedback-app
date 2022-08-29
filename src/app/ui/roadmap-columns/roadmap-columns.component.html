@@ -17,7 +17,7 @@
         class="app__white-wrapper h-full border-t-4 border-solid border-{{
           status.color
         }}"
-        *ngFor="let feedback of fbsDividedByStatus[index]"
+        *ngFor="let feedback of fbsDividedByStatus[index]; trackBy: trackById"
       >
         <h4 class="text-black relative mb-3">
           <div
@@ -31,11 +31,11 @@
           </span>
         </h4>
 
-        <feedback-large-card-item
+        <feedback-card-item
           [isFlexCol]="false"
           [feedback]="feedback"
           extraClasses="w-full "
-        ></feedback-large-card-item>
+        ></feedback-card-item>
       </li>
     </ul>
   </article>

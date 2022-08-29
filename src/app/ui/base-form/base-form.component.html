@@ -47,14 +47,14 @@
             <span class="text-darkGrey">{{ selectedOption.title }}</span>
 
             <div
-              [ngClass]="{ 'rotate-180': shouldDisplay }"
+              [ngClass]="{ 'rotate-180': shouldDisplaySelect }"
               class="transition-transform"
             >
               <icon-arrow-up></icon-arrow-up>
             </div>
           </div>
           <custom-select
-            [shouldDisplay]="shouldDisplay"
+            [shouldDisplaySelect]="shouldDisplaySelect"
             extraClasses="self-center absolute top-[125px] w-full left-[0px]"
             [(selectedOption)]="selectedOption"
             [options]="options"

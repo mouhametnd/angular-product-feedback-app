@@ -12,23 +12,21 @@
   </div>
 
   <div>
-    <feedback-large-card-item
+    <feedback-card-item
       [feedback]="feedback"
       [isFlexCol]="true"
       extraClasses="app__white-wrapper"
-    ></feedback-large-card-item>
+    ></feedback-card-item>
   </div>
 
   <div class="app__white-wrapper">
     <span class="text-lg font-bold text-darkGreyBlue"
       >{{ feedback.comments.length }} <span class="pl-2">Comments</span></span
     >
-    <!-- todo: change how comments are getted -->
 
-    <ul class="flex flex-col gap-8 pt-6">
-      <!-- todo put border x between li  -->
+    <ul class="flex flex-col pt-6 divide-y-[1px] gap-1 divide-[#e5e7eb]s">
       <feedback-comment
-        *ngFor="let comment of feedback.comments"
+        *ngFor="let comment of feedback.comments; track: trackById"
         [comment]="comment"
       ></feedback-comment>
     </ul>

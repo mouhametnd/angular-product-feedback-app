@@ -1,8 +1,4 @@
-import { never } from 'rxjs';
-import { IFbCategory, IFbSortby, IFbStatus, ISelectOption } from '../types';
-
-
-// todo: get better the objecr creation with dynamic creation
+import { IFbCategory, IFbSortby, IFbStatus } from '../types';
 
 export const fbCategories: IFbCategory[] = [
   { title: 'ALL', value: 'ALL' },

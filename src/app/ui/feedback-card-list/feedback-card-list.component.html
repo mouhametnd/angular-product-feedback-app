@@ -1,0 +1,8 @@
+<section class="flex flex-col gap-3 lg:gap-7">
+  <feedback-card-item
+    *ngFor="let feedback of feedbacks; trackBy: trackById"
+    [feedback]="feedback"
+    [isFlexCol]="true"
+    extraClasses="app__white-wrapper"
+  ></feedback-card-item>
+</section>
