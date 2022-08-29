@@ -39,6 +39,7 @@ import { ButtonCreateComponent } from './ui/button-create/button-create.componen
 import { CancelButtonComponent } from './ui/cancel-button/cancel-button.component';
 import { FeedbackReplyComponent } from './ui/feedback-reply/feedback-reply.component';
 import { FormReplyComponent } from './ui/form-reply/form-reply.component';
+import { NoFeedbackFoundComponent } from './ui/no-feedback-found/no-feedback-found.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { FormReplyComponent } from './ui/form-reply/form-reply.component';
     CancelButtonComponent,
     FeedbackReplyComponent,
     FormReplyComponent,
+    NoFeedbackFoundComponent
   ],
   imports: [
     BrowserModule,

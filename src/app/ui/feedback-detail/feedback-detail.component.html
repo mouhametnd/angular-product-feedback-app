@@ -1,8 +1,4 @@
-<section *ngIf="!feedback">
-  <h2 class="text-red-500">No Feedback found</h2>
-</section>
-
-<!-- todo do friendly the 404 error -->
+<no-feedback-found *ngIf="!feedback"> </no-feedback-found>
 
 <section *ngIf="feedback" class="flex flex-col gap-8 max-w-2xl mx-auto pb-10">
   <div class="flex justify-between items-center">
