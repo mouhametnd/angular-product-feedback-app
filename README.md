@@ -19,7 +19,7 @@ This product feedback web app was a good challenge to put into practice my `Angu
 
 ### Links
 
-- Live Project [In-browser markdown editor App](https://mouhametnd-markdown-editor.netlify.app/)
+- Live Project [In-browser markdown editor App](https://mouhametnd-product-feedback.netlify.app/#/)
 - My Linkedin [Linkedin](https://www.linkedin.com/in/mouhametndiaye/)
 - My email ahmetndiaye404@gmail.com
 
