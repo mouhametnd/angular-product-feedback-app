@@ -1,27 +1,65 @@
-# AngularProductFeedbackApp
+# Welcome to Product Feedback Web App! 🍃
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+This product feedback web app was a good challenge to put into practice my `Angular`, `Rxjs`, `NgRx` and `tailwind` skills. The project has many interactions that the user can play with. 
 
-## Development server
+## Table of contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Welcome to Product Feedback Web App! 🍃](#welcome-to-product-feedback-web-app-)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Links](#links)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+  - [Author](#author)
 
-## Code scaffolding
+## Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Links
 
-## Build
+- Live Project [In-browser markdown editor App](https://mouhametnd-markdown-editor.netlify.app/)
+- My Linkedin [Linkedin](https://www.linkedin.com/in/mouhametndiaye/)
+- My email ahmetndiaye404@gmail.com
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+### The challenge
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Users should be able to:
 
-## Running end-to-end tests
+- Create, Read, Update, and Delete Feedback
+- Upvote and Downvote Feedback
+- Add comments to Feedback
+- Reply comments of a Feedback
+- Filter feedbacks
+- Order feedbacks
+- See a responsive design in any device
+- Save documents in local storage. (so don't lose its changes after refreshing the page)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Screenshot
 
-## Further help
+![screenshot](./preview.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## My process
+
+### Built with
+
+- Angular
+- Rxjs
+- NgRx
+- Angular Router 
+- Angular Reactive Forms 
+- Tailwind CSS
+- LocalStorage (to save documents and preferences to be accessed later)
+- Mobile-first workflow
+
+
+### What I learned
+
+In this project, I've used `Angular` with `Rxjs` and `NgRx` to make the project, which helps me to get a better understanding of `Rxjs` library such as how to work with observables, and operators efficiently and how to implement and use state management in `Angular` using `NgRx` library.
+
+## Author
+
+- Portfolio - [Mouhamet Ndiaye](https://mouhametnd.com/)
+- Frontend Mentor - [@fontend mentor](https://frontendmentor.io/challenges/)
