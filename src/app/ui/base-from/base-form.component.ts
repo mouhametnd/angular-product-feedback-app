@@ -14,7 +14,7 @@ import {
 export class BaseFormComponent implements OnInit {
   @Input() formTitle!: string;
   @Input() formSvgIcon!: string;
-  @Input() goBackFn!: Function;
+  @Input() goBack = '/';
   @Input() baseFormDefaultValues: TBaseFormDefaultValues = {
     category: fbCategories[1].value,
     description: '',

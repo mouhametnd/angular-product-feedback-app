@@ -6,6 +6,8 @@ import {
   toggleUpvoteFbAct,
   createFbAct,
   saveChangesAct,
+  deleteFbAct,
+  addCommentAct,
 } from './data-slice-actions';
 import initialDataJson from '../../../../data.json';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
@@ -18,6 +20,7 @@ import {
 } from 'src/app/types';
 import { fbCategories, fbSortOptions } from 'src/app/constants/constans';
 import { FeedBackCLass } from 'src/app/classes/Feedback-class.class';
+import { CommentClass } from 'src/app/classes/comment-class';
 
 localStorage.clear();
 let dataFromLS = JSON.parse(
@@ -35,6 +38,8 @@ const initialState: IAppData = {
   sorter: fbSortOptions[0],
 };
 
+console.log(initialState)
+
 export const dataSliceReducer = createReducer(
   initialState,
   on(updateDataAct, () => {
@@ -51,7 +56,7 @@ export const dataSliceReducer = createReducer(
   on(toggleUpvoteFbAct, (state, { id }) => {
     const newStoreRef = JSON.parse(JSON.stringify(state)) as IAppData;
     const { productRequests } = newStoreRef;
-    const clickedFb = productRequests.find((fb) => fb.id === id)!;
+    const clickedFb = FeedbackHelper.getFbById(id, productRequests)!;
     const isUpvoted = clickedFb.upvoted;
 
     isUpvoted ? (clickedFb.upvotes -= 1) : (clickedFb.upvotes += 1);
@@ -93,5 +98,20 @@ export const dataSliceReducer = createReducer(
       ...FeedbackHelper.getNumOfFbsByStatus(newProductRequest),
       productRequests: newProductRequest,
     };
+  }),
+  on(deleteFbAct, (state, { id }) => {
+    const newProductRequest = [...state.productRequests];
+    const fbRef = FeedbackHelper.getFbById(id, newProductRequest)!;
+    newProductRequest.splice(newProductRequest.indexOf(fbRef), 1);
+
+    return { ...state, productRequests: newProductRequest };
+  }),
+  on(addCommentAct, (state, { id, content }) => {
+    const newStoreRef = JSON.parse(JSON.stringify(state)) as IAppData;
+    const { productRequests } = newStoreRef;
+    const newComment = new CommentClass(content, state.currentUser);
+    const fbRef = FeedbackHelper.getFbById(id, productRequests)!;
+    fbRef.comments.push(newComment);
+    return newStoreRef;
   })
 );

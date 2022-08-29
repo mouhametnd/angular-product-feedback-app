@@ -28,6 +28,15 @@ export const createFbAct = createAction(
   props<{ fbProps: TBaseFormDefaultValues }>()
 );
 export const saveChangesAct = createAction(
-  '[data]  SAVE_CHANGES',
+  '[data] SAVE_CHANGES',
   props<{ fbProps: ISaveChangesAct }>()
+);
+
+export const deleteFbAct = createAction(
+  '[data] DELETE',
+  props<{ id: string }>()
+);
+export const addCommentAct = createAction(
+  '[data] ADD_COMMENT',
+  props<{ id: string, content: string }>()
 );

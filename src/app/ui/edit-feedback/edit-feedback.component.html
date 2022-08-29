@@ -1,5 +1,6 @@
 <ng-container *ngIf="selectedFb">
   <base-form
+    [goBack]="goBackToDetial()"
     (baseFormStateEmitter)="baseFormListener($event)"
     formTitle="Editing feedback X"
     formSvgIcon="./assets/shared/icon-edit-feedback.svg"
@@ -36,9 +37,18 @@
       buttons
       class="flex flex-wrap gap-2.5 justify-center xs:flex-nowrap sm:gap-5"
     >
-      <button class="app__button--delete">Delete</button>
-      <button class="app__button--cancel">Cancel</button>
-      <button (click)="handleSaveChanges()" class="app__button--normal">Save Changes</button>
+      <button (click)="handleDeleteClick()" class="app__button--delete">
+        Delete
+      </button>
+      <button
+        [routerLink]="['/feedback-detail', segmentId]"
+        class="app__button--cancel"
+      >
+        Cancel
+      </button>
+      <button (click)="handleSaveChangesClick()" class="app__button--normal">
+        Save Changes
+      </button>
     </div>
   </base-form>
 </ng-container>
