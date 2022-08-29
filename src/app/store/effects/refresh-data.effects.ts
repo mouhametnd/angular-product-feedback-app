@@ -13,7 +13,14 @@ export class RefreshDataEffect {
   refreshStore$ = createEffect(
     () =>
       this._actions$.pipe(
-        ofType('[data] UPVOTE_TOGGLE', '[data] CREATE', '[data] DELETE', '[data] SAVE_CHANGES' ),
+        ofType(
+          '[data] UPVOTE_TOGGLE',
+          '[data] CREATE',
+          '[data] DELETE',
+          '[data] SAVE_CHANGES',
+          '[data] ADD_COMMENT',
+          '[data] ADD_REPLY'
+        ),
         mergeMap(() =>
           this._store$.pipe(
             map(({ data }) => {

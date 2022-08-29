@@ -8,6 +8,7 @@ import {
   saveChangesAct,
   deleteFbAct,
   addCommentAct,
+  addReplyAct,
 } from './data-slice-actions';
 import initialDataJson from '../../../../data.json';
 import { FeedbackHelper } from 'src/app/utils/feedback-helper';
@@ -19,10 +20,11 @@ import {
   TFbStatusValues,
 } from 'src/app/types';
 import { fbCategories, fbSortOptions } from 'src/app/constants/constans';
-import { FeedBackCLass } from 'src/app/classes/Feedback-class.class';
+import { FeedBackCLass } from 'src/app/classes/feedback-class.class';
 import { CommentClass } from 'src/app/classes/comment-class';
+import { ReplyClass } from 'src/app/classes/reply-class';
 
-localStorage.clear();
+// localStorage.clear();
 let dataFromLS = JSON.parse(
   localStorage.getItem('data') as string
 ) as IJSonData;
@@ -37,8 +39,6 @@ const initialState: IAppData = {
   filterCategory: fbCategories[0],
   sorter: fbSortOptions[0],
 };
-
-console.log(initialState)
 
 export const dataSliceReducer = createReducer(
   initialState,
@@ -106,12 +106,20 @@ export const dataSliceReducer = createReducer(
 
     return { ...state, productRequests: newProductRequest };
   }),
-  on(addCommentAct, (state, { id, content }) => {
+  on(addCommentAct, (state, { fbId, content }) => {
     const newStoreRef = JSON.parse(JSON.stringify(state)) as IAppData;
     const { productRequests } = newStoreRef;
     const newComment = new CommentClass(content, state.currentUser);
-    const fbRef = FeedbackHelper.getFbById(id, productRequests)!;
+    const fbRef = FeedbackHelper.getFbById(fbId, productRequests)!;
     fbRef.comments.push(newComment);
+    return newStoreRef;
+  }),
+  on(addReplyAct, (state, { commentId, content, fbId, replyTo }) => {
+    const newStoreRef = JSON.parse(JSON.stringify(state)) as IAppData;
+    const newReply = new ReplyClass(content, state.currentUser, replyTo);
+    const { productRequests } = newStoreRef;
+    const fbRef = FeedbackHelper.getFbById(fbId, productRequests)!;
+    fbRef.comments.find(({ id }) => id === commentId)!.replies.push(newReply);
     return newStoreRef;
   })
 );

@@ -19,7 +19,6 @@ export class FeedBackDetailComponent implements OnInit {
   feedback!: IFeedBack | null;
   commentValue!: string;
   segmentId!: string;
-
   formComment = new FormGroup({
     comment: new FormControl('', [Validators.required]),
   });
@@ -36,10 +35,10 @@ export class FeedBackDetailComponent implements OnInit {
     if (!comment.value) return;
     this._store.dispatch(
       addCommentAct({
-        id: this.segmentId,
+        fbId: this.segmentId,
         content: this.commentValue,
       })
     );
-    comment.reset('')
+    comment.reset('');
   }
 }

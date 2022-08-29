@@ -1,0 +1,16 @@
+<form
+  [formGroup]="formReply"
+  [hidden]="!shouldDisplayForm"
+  class="reply-comment-text"
+>
+  <textarea
+    placeholder="Ctrl + Enter"
+    class="form__input form__textarea"
+    formControlName="reply"
+  ></textarea>
+  <div>
+    <button (click)="handleSubmit()" class="app__button--small mt-2 bg-primaryBtn">
+      Post Comment
+    </button>
+  </div>
+</form>

@@ -38,5 +38,9 @@ export const deleteFbAct = createAction(
 );
 export const addCommentAct = createAction(
   '[data] ADD_COMMENT',
-  props<{ id: string, content: string }>()
+  props<{ fbId: string; content: string }>()
+);
+export const addReplyAct = createAction(
+  '[data] ADD_REPLY',
+  props<{ fbId: string; content: string; replyTo: string; commentId: string }>()
 );

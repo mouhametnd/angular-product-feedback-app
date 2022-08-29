@@ -37,6 +37,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { RefreshDataEffect } from './store/effects/refresh-data.effects';
 import { ButtonCreateComponent } from './ui/button-create/button-create.component';
 import { CancelButtonComponent } from './ui/cancel-button/cancel-button.component';
+import { FeedbackReplyComponent } from './ui/feedback-reply/feedback-reply.component';
+import { FormReplyComponent } from './ui/form-reply/form-reply.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { CancelButtonComponent } from './ui/cancel-button/cancel-button.componen
     FeedBackDetailComponent,
     FeedbackCommentComponent,
     ButtonCreateComponent,
-    CancelButtonComponent
+    CancelButtonComponent,
+    FeedbackReplyComponent,
+    FormReplyComponent,
   ],
   imports: [
     BrowserModule,
