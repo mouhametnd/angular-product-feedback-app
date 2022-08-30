@@ -63,3 +63,4 @@ In this project, I've used `Angular` with `Rxjs` and `NgRx` to make the project,
 
 - Portfolio - [Mouhamet Ndiaye](https://mouhametnd.com/)
 - Frontend Mentor - [@fontend mentor](https://frontendmentor.io/challenges/)
+
